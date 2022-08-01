@@ -1,1 +1,0 @@
-pytest-pythonpath==0.7.3
