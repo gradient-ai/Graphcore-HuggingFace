@@ -1,5 +1,0 @@
---find-links https://download.pytorch.org/whl/torch_stable.html
-datasets>=1.14.0
-librosa
-torchaudio==0.10.0+cpu
-sklearn
