@@ -3,6 +3,6 @@ datasets
 torchvision==0.11.1
 transformers
 optimum
-optimum-graphcore<0.4
+optimum-graphcore
 matplotlib
 sklearn
