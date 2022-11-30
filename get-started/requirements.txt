@@ -5,4 +5,4 @@ transformers
 optimum
 optimum-graphcore
 matplotlib
-sklearn
+scikit-learn
