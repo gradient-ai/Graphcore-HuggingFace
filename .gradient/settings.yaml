@@ -1,7 +1,7 @@
 integrations:
-  squad-huggingface:
-    type: dataset
-    ref: paperspace/dsn5wmo5xkgyqug:e7pc9wn
+  # squad-huggingface:
+  #   type: dataset
+  #   ref: paperspace/dsn5wmo5xkgyqug:e7pc9wn
   # conll2003-huggingface:
   #   type: dataset
   #   ref: paperspace/dsv8sflblahlk5a:sle9lnd
@@ -31,4 +31,4 @@ integrations:
   #   ref: paperspace/ds30bjcgo4467mz:29gw3mu
   poplar-executables-hf:
     type: dataset
-    ref: paperspace/dssv0xjgptlxoxk:7v019uu
+    ref: paperspace/dsiv2opoyjygwyu:f5qufgc
