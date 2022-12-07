@@ -25,10 +25,10 @@ export TRANSFORMERS_CACHE="/tmp/huggingface_caches/checkpoints"
 export HF_DATASETS_CACHE="/tmp/huggingface_caches/datasets"
 
 # mounted public dataset directory (path in the container)
-# in the Paperspace environment this would be ="/datasets"
 export PUBLIC_DATASET_DIR="/datasets"
 # symlink exe_cache files
-while [ ! -d "${PUBLIC_DATASET_DIR}/exe_cache-huggingface" ]
+# need to wait until the dataset has been mounted (async on Paperspace's end)
+while [ ! -d "${PUBLIC_DATASET_DIR}/exe_cache" ]
 do 
     echo "Waiting for dataset to be mounted..."
     sleep 5
