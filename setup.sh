@@ -15,8 +15,8 @@ symlink-public-resources() {
     cd -
 }
 
-export NUM_AVAILABLE_IPU=4
-export GRAPHCORE_POD_TYPE="pod4" 
+export NUM_AVAILABLE_IPU=16
+export GRAPHCORE_POD_TYPE="pod16" 
 export POPLAR_EXECUTABLE_CACHE_DIR="/tmp/exe_cache"
 export DATASET_DIR="/tmp/dataset_cache"
 export CHECKPOINT_DIR="/tmp/checkpoints"
@@ -26,10 +26,13 @@ export HF_DATASETS_CACHE="/tmp/huggingface_caches/datasets"
 
 # mounted public dataset directory (path in the container)
 # in the Paperspace environment this would be ="/datasets"
-export PUBLIC_DATASET_DIR="/graphcore/public_caches"
-
+export PUBLIC_DATASET_DIR="/datasets"
 # symlink exe_cache files
-symlink-public-resources "${PUBLIC_DATASET_DIR}/exe_cache" $POPLAR_EXECUTABLE_CACHE_DIR
+while [ ! -d "${PUBLIC_DATASET_DIR}/exe_cache" ]
+do 
+    sleep 5
+done
+symlink-public-resources "${PUBLIC_DATASET_DIR}/exe_cache-huggingface" $POPLAR_EXECUTABLE_CACHE_DIR
 # symlink HF datasets
 symlink-public-resources "${PUBLIC_DATASET_DIR}/huggingface_caches/datasets" $HF_DATASETS_CACHE
 
