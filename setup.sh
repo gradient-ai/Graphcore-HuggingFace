@@ -33,7 +33,7 @@ do
     echo "Waiting for dataset to be mounted..."
     sleep 5
 done
-symlink_public_resources "${PUBLIC_DATASET_DIR}/exe_cache-huggingface" $POPLAR_EXECUTABLE_CACHE_DIR
+symlink_public_resources "${PUBLIC_DATASET_DIR}/exe_cache" $POPLAR_EXECUTABLE_CACHE_DIR
 # symlink HF datasets
 # symlink_public_resources "${PUBLIC_DATASET_DIR}/huggingface_caches/datasets" $HF_DATASETS_CACHE
 
