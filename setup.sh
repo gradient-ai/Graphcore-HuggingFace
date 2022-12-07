@@ -35,7 +35,7 @@ do
 done
 symlink-public-resources "${PUBLIC_DATASET_DIR}/exe_cache-huggingface" $POPLAR_EXECUTABLE_CACHE_DIR
 # symlink HF datasets
-symlink-public-resources "${PUBLIC_DATASET_DIR}/huggingface_caches/datasets" $HF_DATASETS_CACHE
+# symlink-public-resources "${PUBLIC_DATASET_DIR}/huggingface_caches/datasets" $HF_DATASETS_CACHE
 
 # Set framework specific variables
 export POPTORCH_CACHE_DIR="${POPLAR_EXECUTABLE_CACHE_DIR}"
