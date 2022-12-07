@@ -29,6 +29,6 @@ integrations:
   # glue-huggingface:
   #   type: dataset
   #   ref: paperspace/ds30bjcgo4467mz:29gw3mu
-  poplar-executables-hf:
+  exe_cache-huggingface:
     type: dataset
     ref: paperspace/dsiv2opoyjygwyu:f5qufgc
