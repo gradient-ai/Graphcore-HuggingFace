@@ -28,14 +28,14 @@ export HF_DATASETS_CACHE="/tmp/huggingface_caches/datasets"
 # in the Paperspace environment this would be ="/datasets"
 export PUBLIC_DATASET_DIR="/datasets"
 # symlink exe_cache files
-while [ ! -d "${PUBLIC_DATASET_DIR}/exe_cache" ]
+while [ ! -d "${PUBLIC_DATASET_DIR}/exe_cache-huggingface" ]
 do 
     echo "Waiting for dataset to be mounted..."
     sleep 5
 done
 symlink-public-resources "${PUBLIC_DATASET_DIR}/exe_cache-huggingface" $POPLAR_EXECUTABLE_CACHE_DIR
 # symlink HF datasets
-# symlink-public-resources "${PUBLIC_DATASET_DIR}/huggingface_caches/datasets" $HF_DATASETS_CACHE
+symlink-public-resources "${PUBLIC_DATASET_DIR}/huggingface_caches/datasets" $HF_DATASETS_CACHE
 
 # Set framework specific variables
 export POPTORCH_CACHE_DIR="${POPLAR_EXECUTABLE_CACHE_DIR}"
