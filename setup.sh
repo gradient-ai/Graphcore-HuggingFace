@@ -35,12 +35,12 @@ do
 done
 symlink_public_resources "${PUBLIC_DATASET_DIR}/exe_cache" $POPLAR_EXECUTABLE_CACHE_DIR
 # symlink HF datasets
-while [ ! -d "${PUBLIC_DATASET_DIR}/huggingface_caches/datasets" ]
-do 
-    echo "Waiting for HF datasets to be mounted..."
-    sleep 5
-done
-symlink_public_resources "${PUBLIC_DATASET_DIR}/huggingface_caches/datasets" $HF_DATASETS_CACHE
+# while [ ! -d "${PUBLIC_DATASET_DIR}/huggingface_caches/datasets" ]
+# do 
+#     echo "Waiting for HF datasets to be mounted..."
+#     sleep 5
+# done
+# symlink_public_resources "${PUBLIC_DATASET_DIR}/huggingface_caches/datasets" $HF_DATASETS_CACHE
 
 # Set framework specific variables
 export POPTORCH_CACHE_DIR="${POPLAR_EXECUTABLE_CACHE_DIR}"
