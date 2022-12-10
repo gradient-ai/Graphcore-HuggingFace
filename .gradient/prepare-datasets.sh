@@ -45,4 +45,4 @@ if [[ "$1" == "test" ]]; then
 elif [[ "$2" == "test" ]]; then
     #source .gradient/automated-test.sh "${@:2}"
     bash /notebooks/.gradient/automated-test.sh $3 $4 $5 $6 $7 $8 $9
-else
+fi
