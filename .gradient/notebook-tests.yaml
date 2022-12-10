@@ -1,0 +1,181 @@
+# Generated file from directory Graphcore-HuggingFace on Wed 12 Oct 2022 18:06:47 BST
+# By running 'generate-yaml.sh'.
+# There may be manual modifications in this file,
+# be careful when updating.
+
+
+gradient_repository_options: &gradient_repository_options
+  repository:
+    origin: https://github.com/graphcore/Graphcore-HuggingFace-fork.git
+    ref: prepare-sdk-release-3.0
+
+
+Graphcore-HuggingFace-README_first:
+  # <<: *gradient_repository_options
+  generated: true
+  notebook:
+    file: README_first.ipynb
+    timeout: 10000
+
+# Audio processing
+audio-processing-wav2vec2-fine-tuning-checkpoint:
+  # <<: *gradient_repository_options
+  location: audio-processing
+  generated: true
+  notebook:
+    file: wav2vec2-fine-tuning-checkpoint.ipynb
+    timeout: 10000
+  requirements_file: requirements.txt
+
+audio-processing-wav2vec2-inference-checkpoint:
+  # <<: *gradient_repository_options
+  location: audio-processing
+  generated: true
+  notebook:
+    file: wav2vec2-inference-checkpoint.ipynb
+    timeout: 10000
+  requirements_file: requirements.txt
+
+audio-processing-audio_classification:
+  # <<: *gradient_repository_options
+  location: audio-processing
+  generated: true
+  notebook:
+    file: audio_classification.ipynb
+    timeout: 10000
+
+
+# Image classification
+image_classification:
+  # <<: *gradient_repository_options
+  location: image-classification
+  generated: true
+  notebook:
+    file: image_classification.ipynb
+    timeout: 10000
+
+# Natural language processing
+nlp-introduction_to_optimum_graphcore:
+  # <<: *gradient_repository_options
+  location: natural-language-processing
+  generated: true
+  notebook:
+    file: introduction_to_optimum_graphcore.ipynb
+    timeout: 10000
+
+nlp-sentiment-analysis:
+  # <<: *gradient_repository_options
+  location: natural-language-processing
+  generated: true
+  notebook:
+    file: sentiment_analysis.ipynb
+    timeout: 10000
+
+nlp-text_classification:
+  # <<: *gradient_repository_options
+  location: natural-language-processing
+  generated: true
+  notebook:
+    file: text_classification.ipynb
+    timeout: 10000
+
+nlp-language_modeling:
+  # <<: *gradient_repository_options
+  location: natural-language-processing
+  generated: true
+  notebook:
+    file: language_modeling.ipynb
+    timeout: 10000
+
+nlp-language_modelling_from_scratch:
+  # <<: *gradient_repository_options
+  location: natural-language-processing
+  generated: true
+  notebook:
+    file: language_modelling_from_scratch.ipynb
+    timeout: 10000
+
+nlp-multiple_choice:
+  # <<: *gradient_repository_options
+  location: natural-language-processing
+  generated: true
+  notebook:
+    file: multiple_choice.ipynb
+    timeout: 10000
+
+nlp-question_answering:
+  # <<: *gradient_repository_options
+  location: natural-language-processing
+  generated: true
+  notebook:
+    file: question_answering.ipynb
+    timeout: 10000
+
+nlp-summarization:
+  # <<: *gradient_repository_options
+  location: natural-language-processing
+  generated: true
+  notebook:
+    file: summarization.ipynb
+    timeout: 10000
+
+nlp-token_classification:
+  # <<: *gradient_repository_options
+  location: natural-language-processing
+  generated: true
+  notebook:
+    file: token_classification.ipynb
+    timeout: 10000
+
+nlp-translation:
+  # <<: *gradient_repository_options
+  location: natural-language-processing
+  generated: true
+  notebook:
+    file: translation.ipynb
+    timeout: 10000
+
+nlp-external_model:
+  # <<: *gradient_repository_options
+  location: natural-language-processing
+  generated: true
+  notebook:
+    file: external_model.ipynb
+    timeout: 10000
+
+# Stable diffusion
+stable-diffusion-image_to_image:
+  # <<: *gradient_repository_options
+  location: stable-diffusion
+  generated: true
+  notebook:
+    file: image_to_image.ipynb
+    timeout: 10000
+  requirements_file: requirements.txt
+
+stable-diffusion-inpainting:
+  # <<: *gradient_repository_options
+  location: stable-diffusion
+  generated: true
+  notebook:
+    file: inpainting.ipynb
+    timeout: 10000
+  requirements_file: requirements.txt
+
+stable-diffusion-text_to_image:
+  # <<: *gradient_repository_options
+  location: stable-diffusion
+  generated: true
+  notebook:
+    file: text_to_image.ipynb
+    timeout: 10000
+  requirements_file: requirements.txt
+
+stable-diffusion-text_to_image_sd2:
+  # <<: *gradient_repository_options
+  location: stable-diffusion
+  generated: true
+  notebook:
+    file: text_to_image_sd2.ipynb
+    timeout: 10000
+  requirements_file: requirements.txt
