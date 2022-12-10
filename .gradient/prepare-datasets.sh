@@ -22,6 +22,7 @@ symlink-public-resources() {
     find -type f -not -name "*.lock" -print0 | xargs -0 -P 50 -I {} sh -c "cp -sP \"${PWD}/{}\" \"${target_dir}/{}\""
     cd -
 }
+echo $@
 
 echo "Starting preparation of datasets"
 # symlink exe_cache files

@@ -50,7 +50,7 @@ run_tests(){
     tar -czvf "${LOG_FOLDER}.tar.gz" ${LOG_FOLDER}
     echo "PAPERSPACE-AUTOMATED-TESTING: Testing complete"
 }
-
+echo $@
 # Prep the huggingface token
 export HUGGING_FACE_HUB_TOKEN=${7}
 

@@ -29,7 +29,7 @@ export HF_DATASETS_CACHE="/tmp/huggingface_caches/datasets"
 export POPTORCH_CACHE_DIR="${POPLAR_EXECUTABLE_CACHE_DIR}"
 export POPTORCH_LOG_LEVEL=ERR
 
-
+echo $@
 nohup /notebooks/.gradient/prepare-datasets.sh ${@} & tail -f nohup.out &
 
 PIP_DISABLE_PIP_VERSION_CHECK=1 CACHE_DIR=/tmp DATASET_DIR=/graphcore jupyter lab --allow-root --ip=0.0.0.0 --no-browser --ServerApp.trust_xheaders=True --ServerApp.disable_check_xsrf=False --ServerApp.allow_remote_access=True --ServerApp.allow_origin='*' --ServerApp.allow_credentials=True
