@@ -32,17 +32,17 @@ for dataset in ${PUBLIC_DATASET_DIR}/*; do
     # don't symlink the poplar executables, that's handled above
     test "$dataset" = "$exe_cache_source_dir" && continue
     # symlink the actual datasets
-    symlink_public_resources $dataset $HF_DATASETS_CACHE
+    symlink-public-resources $dataset $HF_DATASETS_CACHE
 done
 # pre-install the correct version of optimum for this release
 python -m pip install "optimum-graphcore>0.4, <0.5"
 
 echo "Finished running setup.sh."
 # Run automated test if specified
-if [ $1 = "test" ]; then
+if [ $1 == "test" ]; then
     #source .gradient/automated-test.sh "${@:2}"
     source .gradient/automated-test.sh $2 $3 $4 $5 $6 $7 $8
-elif [ $2 = "test" ]; then
+elif [ $2 == "test" ]; then
     #source .gradient/automated-test.sh "${@:2}"
     source .gradient/automated-test.sh $3 $4 $5 $6 $7 $8 $9
-fi
+else
