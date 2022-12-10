@@ -18,7 +18,7 @@ symlink-public-resources() {
     cd -
 }
 
-DETECTED_NUMBER_OF_IPUS="4"
+DETECTED_NUMBER_OF_IPUS=$(python .gradient/available_ipus.py)
 
 IPU_ARG=${1:-"${DETECTED_NUMBER_OF_IPUS}"}
 
@@ -27,6 +27,8 @@ export GRAPHCORE_POD_TYPE="pod${IPU_ARG}"
 export POPLAR_EXECUTABLE_CACHE_DIR="/tmp/exe_cache"
 export DATASET_DIR="/tmp/dataset_cache"
 export CHECKPOINT_DIR="/tmp/checkpoints"
+export PIP_DISABLE_PIP_VERSION_CHECK=1
+export CACHE_DIR="/tmp"
 
 # mounted public dataset directory (path in the container)
 # in the Paperspace environment this would be ="/datasets"
@@ -42,12 +44,28 @@ export POPTORCH_CACHE_DIR="${POPLAR_EXECUTABLE_CACHE_DIR}"
 export POPTORCH_LOG_LEVEL=ERR
 
 prepare_datasets(){
+    echo "Starting preparation of datasets"
     # symlink exe_cache files
-    symlink-public-resources "${PUBLIC_DATASET_DIR}/exe_cache" $POPLAR_EXECUTABLE_CACHE_DIR
+    exe_cache_source_dir="${PUBLIC_DATASET_DIR}/exe_cache"
+    symlink-public-resources "${exe_cache_source_dir}" $POPLAR_EXECUTABLE_CACHE_DIR
     # symlink HF datasets
-    symlink-public-resources "${PUBLIC_DATASET_DIR}/huggingface_caches/datasets" $HF_DATASETS_CACHE
+    for dataset in ${PUBLIC_DATASET_DIR}/*; do
+        # don't symlink the poplar executables, that's handled above
+        test "$dataset" = "$exe_cache_source_dir" && continue
+        # symlink the actual datasets
+        symlink_public_resources $dataset $HF_DATASETS_CACHE
+    done
     # pre-install the correct version of optimum for this release
-    python -m pip install "optimum-graphcore==0.4.3"
+    python -m pip install "optimum-graphcore>0.4, <0.5"
+
+    echo "Finished running setup.sh."
+    # Run automated test if specified
+    if [ $1 = "test" ]; then
+        #source .gradient/automated-test.sh "${@:2}"
+        source .gradient/automated-test.sh $2 $3 $4 $5 $6 $7 $8
+    fi
 }
 
 nohup prepare_datasets & tail -f nohup.out &
+
+jupyter lab --allow-root --ip=0.0.0.0 --no-browser --ServerApp.trust_xheaders=True --ServerApp.disable_check_xsrf=False --ServerApp.allow_remote_access=True --ServerApp.allow_origin='*' --ServerApp.allow_credentials=True
