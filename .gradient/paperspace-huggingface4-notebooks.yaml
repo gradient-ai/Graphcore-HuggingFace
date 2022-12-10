@@ -1,0 +1,49 @@
+gradient_repository_options: &gradient_repository_options
+  repository:
+    origin: https://github.com/graphcore/Graphcore-HuggingFace-fork.git
+    ref: prepare-sdk-release-3.0
+
+nlp-external_model:
+  <<: *gradient_repository_options
+  location: natural-language-processing
+  generated: true
+  notebook:
+    file: external_model.ipynb
+    timeout: 10000
+
+# Stable diffusion
+stable-diffusion-image_to_image:
+  <<: *gradient_repository_options
+  location: stable-diffusion
+  generated: true
+  notebook:
+    file: image_to_image.ipynb
+    timeout: 10000
+  requirements_file: requirements.txt
+
+stable-diffusion-inpainting:
+  <<: *gradient_repository_options
+  location: stable-diffusion
+  generated: true
+  notebook:
+    file: inpainting.ipynb
+    timeout: 10000
+  requirements_file: requirements.txt
+
+stable-diffusion-text_to_image:
+  <<: *gradient_repository_options
+  location: stable-diffusion
+  generated: true
+  notebook:
+    file: text_to_image.ipynb
+    timeout: 10000
+  requirements_file: requirements.txt
+
+stable-diffusion-text_to_image_sd2:
+  <<: *gradient_repository_options
+  location: stable-diffusion
+  generated: true
+  notebook:
+    file: text_to_image_sd2.ipynb
+    timeout: 10000
+  requirements_file: requirements.txt

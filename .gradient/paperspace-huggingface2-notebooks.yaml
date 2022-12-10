@@ -1,0 +1,47 @@
+gradient_repository_options: &gradient_repository_options
+  repository:
+    origin: https://github.com/graphcore/Graphcore-HuggingFace-fork.git
+    ref: prepare-sdk-release-3.0
+
+
+nlp-introduction_to_optimum_graphcore:
+  <<: *gradient_repository_options
+  location: natural-language-processing
+  generated: true
+  notebook:
+    file: introduction_to_optimum_graphcore.ipynb
+    timeout: 10000
+
+nlp-sentiment-analysis:
+  <<: *gradient_repository_options
+  location: natural-language-processing
+  generated: true
+  notebook:
+    file: sentiment_analysis.ipynb
+    timeout: 10000
+
+nlp-text_classification:
+  <<: *gradient_repository_options
+  location: natural-language-processing
+  generated: true
+  notebook:
+    file: text_classification.ipynb
+    timeout: 10000
+
+nlp-language_modeling:
+  <<: *gradient_repository_options
+  location: natural-language-processing
+  generated: true
+  notebook:
+    file: language_modeling.ipynb
+    timeout: 10000
+
+nlp-language_modelling_from_scratch:
+  <<: *gradient_repository_options
+  location: natural-language-processing
+  generated: true
+  notebook:
+    file: language_modelling_from_scratch.ipynb
+    timeout: 10000
+
+  

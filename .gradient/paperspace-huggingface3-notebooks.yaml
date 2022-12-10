@@ -1,0 +1,44 @@
+gradient_repository_options: &gradient_repository_options
+  repository:
+    origin: https://github.com/graphcore/Graphcore-HuggingFace-fork.git
+    ref: prepare-sdk-release-3.0
+
+nlp-multiple_choice:
+  <<: *gradient_repository_options
+  location: natural-language-processing
+  generated: true
+  notebook:
+    file: multiple_choice.ipynb
+    timeout: 10000
+
+nlp-question_answering:
+  <<: *gradient_repository_options
+  location: natural-language-processing
+  generated: true
+  notebook:
+    file: question_answering.ipynb
+    timeout: 10000
+
+nlp-summarization:
+  <<: *gradient_repository_options
+  location: natural-language-processing
+  generated: true
+  notebook:
+    file: summarization.ipynb
+    timeout: 10000
+
+nlp-token_classification:
+  <<: *gradient_repository_options
+  location: natural-language-processing
+  generated: true
+  notebook:
+    file: token_classification.ipynb
+    timeout: 10000
+
+nlp-translation:
+  <<: *gradient_repository_options
+  location: natural-language-processing
+  generated: true
+  notebook:
+    file: translation.ipynb
+    timeout: 10000
