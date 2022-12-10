@@ -3,7 +3,7 @@
 # Script to be sourced on launch of the Gradient Notebook
 
 # called from root folder in container
-SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+# SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 DETECTED_NUMBER_OF_IPUS=$(python .gradient/available_ipus.py)
 
@@ -30,4 +30,4 @@ export POPTORCH_CACHE_DIR="${POPLAR_EXECUTABLE_CACHE_DIR}"
 export POPTORCH_LOG_LEVEL=ERR
 
 
-nohup bash ${SCRIPT_DIR}/.gradient/prepare-datasets.sh ${@} & tail -f nohup.out &
+nohup bash /notebooks/.gradient/prepare-datasets.sh ${@} & tail -f nohup.out &
