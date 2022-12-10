@@ -8,7 +8,7 @@ symlink-public-resources() {
     #while [ ! -d "${PUBLIC_DATASET_DIR}/exe_cache" ]
     while [ ! -d ${public_source_dir} ]
     do
-        echo "Waiting for dataset to be mounted..."
+        echo "Waiting for dataset "${public_source_dir}" to be mounted..."
         sleep 1
     done
 
@@ -39,10 +39,10 @@ python -m pip install "optimum-graphcore>0.4, <0.5"
 
 echo "Finished running setup.sh."
 # Run automated test if specified
-if [ $1 == "test" ]; then
+if [ "$1" == "test" ]; then
     #source .gradient/automated-test.sh "${@:2}"
     source .gradient/automated-test.sh $2 $3 $4 $5 $6 $7 $8
-elif [ $2 == "test" ]; then
+elif [ "$2" == "test" ]; then
     #source .gradient/automated-test.sh "${@:2}"
     source .gradient/automated-test.sh $3 $4 $5 $6 $7 $8 $9
 else

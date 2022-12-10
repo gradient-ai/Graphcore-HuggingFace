@@ -30,4 +30,4 @@ export POPTORCH_CACHE_DIR="${POPLAR_EXECUTABLE_CACHE_DIR}"
 export POPTORCH_LOG_LEVEL=ERR
 
 
-nohup bash /notebooks/.gradient/prepare-datasets.sh ${@} & tail -f nohup.out &
+nohup /notebooks/.gradient/prepare-datasets.sh ${@} & tail -f nohup.out &
