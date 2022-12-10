@@ -1,3 +1,0 @@
-examples-utils[jupyter] @ git+https://github.com/graphcore/examples-utils@8f57bfda96af84e3c931837bed052a657328d264
-gradient
-
