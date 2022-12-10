@@ -20,7 +20,7 @@ Graphcore-HuggingFace-README_first:
 # Audio processing
 audio-processing-wav2vec2-fine-tuning-checkpoint:
   # <<: *gradient_repository_options
-  location: audio-processing
+  location: ../audio-processing
   generated: true
   notebook:
     file: wav2vec2-fine-tuning-checkpoint.ipynb
@@ -29,7 +29,7 @@ audio-processing-wav2vec2-fine-tuning-checkpoint:
 
 audio-processing-wav2vec2-inference-checkpoint:
   # <<: *gradient_repository_options
-  location: audio-processing
+  location: ../audio-processing
   generated: true
   notebook:
     file: wav2vec2-inference-checkpoint.ipynb
@@ -38,7 +38,7 @@ audio-processing-wav2vec2-inference-checkpoint:
 
 audio-processing-audio_classification:
   # <<: *gradient_repository_options
-  location: audio-processing
+  location: ../audio-processing
   generated: true
   notebook:
     file: audio_classification.ipynb
@@ -48,7 +48,7 @@ audio-processing-audio_classification:
 # Image classification
 image_classification:
   # <<: *gradient_repository_options
-  location: image-classification
+  location: ../image-classification
   generated: true
   notebook:
     file: image_classification.ipynb
@@ -57,7 +57,7 @@ image_classification:
 # Natural language processing
 nlp-introduction_to_optimum_graphcore:
   # <<: *gradient_repository_options
-  location: natural-language-processing
+  location: ../natural-language-processing
   generated: true
   notebook:
     file: introduction_to_optimum_graphcore.ipynb
@@ -65,7 +65,7 @@ nlp-introduction_to_optimum_graphcore:
 
 nlp-sentiment-analysis:
   # <<: *gradient_repository_options
-  location: natural-language-processing
+  location: ../natural-language-processing
   generated: true
   notebook:
     file: sentiment_analysis.ipynb
@@ -73,7 +73,7 @@ nlp-sentiment-analysis:
 
 nlp-text_classification:
   # <<: *gradient_repository_options
-  location: natural-language-processing
+  location: ../natural-language-processing
   generated: true
   notebook:
     file: text_classification.ipynb
@@ -81,7 +81,7 @@ nlp-text_classification:
 
 nlp-language_modeling:
   # <<: *gradient_repository_options
-  location: natural-language-processing
+  location: ../natural-language-processing
   generated: true
   notebook:
     file: language_modeling.ipynb
@@ -89,7 +89,7 @@ nlp-language_modeling:
 
 nlp-language_modelling_from_scratch:
   # <<: *gradient_repository_options
-  location: natural-language-processing
+  location: ../natural-language-processing
   generated: true
   notebook:
     file: language_modelling_from_scratch.ipynb
@@ -97,7 +97,7 @@ nlp-language_modelling_from_scratch:
 
 nlp-multiple_choice:
   # <<: *gradient_repository_options
-  location: natural-language-processing
+  location: ../natural-language-processing
   generated: true
   notebook:
     file: multiple_choice.ipynb
@@ -105,7 +105,7 @@ nlp-multiple_choice:
 
 nlp-question_answering:
   # <<: *gradient_repository_options
-  location: natural-language-processing
+  location: ../natural-language-processing
   generated: true
   notebook:
     file: question_answering.ipynb
@@ -113,7 +113,7 @@ nlp-question_answering:
 
 nlp-summarization:
   # <<: *gradient_repository_options
-  location: natural-language-processing
+  location: ../natural-language-processing
   generated: true
   notebook:
     file: summarization.ipynb
@@ -121,7 +121,7 @@ nlp-summarization:
 
 nlp-token_classification:
   # <<: *gradient_repository_options
-  location: natural-language-processing
+  location: ../natural-language-processing
   generated: true
   notebook:
     file: token_classification.ipynb
@@ -129,7 +129,7 @@ nlp-token_classification:
 
 nlp-translation:
   # <<: *gradient_repository_options
-  location: natural-language-processing
+  location: ../natural-language-processing
   generated: true
   notebook:
     file: translation.ipynb
@@ -137,7 +137,7 @@ nlp-translation:
 
 nlp-external_model:
   # <<: *gradient_repository_options
-  location: natural-language-processing
+  location: ../natural-language-processing
   generated: true
   notebook:
     file: external_model.ipynb
@@ -146,7 +146,7 @@ nlp-external_model:
 # Stable diffusion
 stable-diffusion-image_to_image:
   # <<: *gradient_repository_options
-  location: stable-diffusion
+  location: ../stable-diffusion
   generated: true
   notebook:
     file: image_to_image.ipynb
@@ -155,7 +155,7 @@ stable-diffusion-image_to_image:
 
 stable-diffusion-inpainting:
   # <<: *gradient_repository_options
-  location: stable-diffusion
+  location: ../stable-diffusion
   generated: true
   notebook:
     file: inpainting.ipynb
@@ -164,7 +164,7 @@ stable-diffusion-inpainting:
 
 stable-diffusion-text_to_image:
   # <<: *gradient_repository_options
-  location: stable-diffusion
+  location: ../stable-diffusion
   generated: true
   notebook:
     file: text_to_image.ipynb
@@ -173,7 +173,7 @@ stable-diffusion-text_to_image:
 
 stable-diffusion-text_to_image_sd2:
   # <<: *gradient_repository_options
-  location: stable-diffusion
+  location: ../stable-diffusion
   generated: true
   notebook:
     file: text_to_image_sd2.ipynb
