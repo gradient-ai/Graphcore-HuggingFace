@@ -11,7 +11,7 @@ gradient_repository_options: &gradient_repository_options
 
 
 Graphcore-HuggingFace-README_first:
-  <<: *gradient_repository_options
+  # <<: *gradient_repository_options
   generated: true
   notebook:
     file: README_first.ipynb
@@ -19,7 +19,7 @@ Graphcore-HuggingFace-README_first:
 
 # Audio processing
 audio-processing-wav2vec2-fine-tuning-checkpoint:
-  <<: *gradient_repository_options
+  # <<: *gradient_repository_options
   location: audio-processing
   generated: true
   notebook:
@@ -28,7 +28,7 @@ audio-processing-wav2vec2-fine-tuning-checkpoint:
   requirements_file: requirements.txt
 
 audio-processing-wav2vec2-inference-checkpoint:
-  <<: *gradient_repository_options
+  # <<: *gradient_repository_options
   location: audio-processing
   generated: true
   notebook:
@@ -37,7 +37,7 @@ audio-processing-wav2vec2-inference-checkpoint:
   requirements_file: requirements.txt
 
 audio-processing-audio_classification:
-  <<: *gradient_repository_options
+  # <<: *gradient_repository_options
   location: audio-processing
   generated: true
   notebook:
@@ -47,7 +47,7 @@ audio-processing-audio_classification:
 
 # Image classification
 image_classification:
-  <<: *gradient_repository_options
+  # <<: *gradient_repository_options
   location: image-classification
   generated: true
   notebook:
@@ -56,7 +56,7 @@ image_classification:
 
 # Natural language processing
 nlp-introduction_to_optimum_graphcore:
-  <<: *gradient_repository_options
+  # <<: *gradient_repository_options
   location: natural-language-processing
   generated: true
   notebook:
@@ -64,7 +64,7 @@ nlp-introduction_to_optimum_graphcore:
     timeout: 10000
 
 nlp-sentiment-analysis:
-  <<: *gradient_repository_options
+  # <<: *gradient_repository_options
   location: natural-language-processing
   generated: true
   notebook:
@@ -72,7 +72,7 @@ nlp-sentiment-analysis:
     timeout: 10000
 
 nlp-text_classification:
-  <<: *gradient_repository_options
+  # <<: *gradient_repository_options
   location: natural-language-processing
   generated: true
   notebook:
@@ -80,7 +80,7 @@ nlp-text_classification:
     timeout: 10000
 
 nlp-language_modeling:
-  <<: *gradient_repository_options
+  # <<: *gradient_repository_options
   location: natural-language-processing
   generated: true
   notebook:
@@ -88,7 +88,7 @@ nlp-language_modeling:
     timeout: 10000
 
 nlp-language_modelling_from_scratch:
-  <<: *gradient_repository_options
+  # <<: *gradient_repository_options
   location: natural-language-processing
   generated: true
   notebook:
@@ -96,7 +96,7 @@ nlp-language_modelling_from_scratch:
     timeout: 10000
 
 nlp-multiple_choice:
-  <<: *gradient_repository_options
+  # <<: *gradient_repository_options
   location: natural-language-processing
   generated: true
   notebook:
@@ -104,7 +104,7 @@ nlp-multiple_choice:
     timeout: 10000
 
 nlp-question_answering:
-  <<: *gradient_repository_options
+  # <<: *gradient_repository_options
   location: natural-language-processing
   generated: true
   notebook:
@@ -112,7 +112,7 @@ nlp-question_answering:
     timeout: 10000
 
 nlp-summarization:
-  <<: *gradient_repository_options
+  # <<: *gradient_repository_options
   location: natural-language-processing
   generated: true
   notebook:
@@ -120,7 +120,7 @@ nlp-summarization:
     timeout: 10000
 
 nlp-token_classification:
-  <<: *gradient_repository_options
+  # <<: *gradient_repository_options
   location: natural-language-processing
   generated: true
   notebook:
@@ -128,7 +128,7 @@ nlp-token_classification:
     timeout: 10000
 
 nlp-translation:
-  <<: *gradient_repository_options
+  # <<: *gradient_repository_options
   location: natural-language-processing
   generated: true
   notebook:
@@ -136,7 +136,7 @@ nlp-translation:
     timeout: 10000
 
 nlp-external_model:
-  <<: *gradient_repository_options
+  # <<: *gradient_repository_options
   location: natural-language-processing
   generated: true
   notebook:
@@ -145,7 +145,7 @@ nlp-external_model:
 
 # Stable diffusion
 stable-diffusion-image_to_image:
-  <<: *gradient_repository_options
+  # <<: *gradient_repository_options
   location: stable-diffusion
   generated: true
   notebook:
@@ -154,7 +154,7 @@ stable-diffusion-image_to_image:
   requirements_file: requirements.txt
 
 stable-diffusion-inpainting:
-  <<: *gradient_repository_options
+  # <<: *gradient_repository_options
   location: stable-diffusion
   generated: true
   notebook:
@@ -163,7 +163,7 @@ stable-diffusion-inpainting:
   requirements_file: requirements.txt
 
 stable-diffusion-text_to_image:
-  <<: *gradient_repository_options
+  # <<: *gradient_repository_options
   location: stable-diffusion
   generated: true
   notebook:
@@ -172,11 +172,10 @@ stable-diffusion-text_to_image:
   requirements_file: requirements.txt
 
 stable-diffusion-text_to_image_sd2:
-  <<: *gradient_repository_options
+  # <<: *gradient_repository_options
   location: stable-diffusion
   generated: true
   notebook:
     file: text_to_image_sd2.ipynb
     timeout: 10000
   requirements_file: requirements.txt
-

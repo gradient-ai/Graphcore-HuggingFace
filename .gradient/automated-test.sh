@@ -34,7 +34,7 @@ run_tests(){
     # set variable matching the standard Paperspace entry point
     export PIP_DISABLE_PIP_VERSION_CHECK=1
 
-    python -m pip install -r ${pip_requirements_file}
+
     export VIRTUAL_ENV="/some/fake/venv/GC-automated-paperspace-test-${4}"
     LOG_FOLDER="${5}/log_${4}_$(date +'%Y-%m-%d-%H_%M')"
     TEST_CONFIG_FILE="${6}"
@@ -48,21 +48,14 @@ run_tests(){
         --additional-metrics
 
     tar -czvf "${LOG_FOLDER}.tar.gz" ${LOG_FOLDER}
-    # Remove submodule files to save storage space on Paperspace
-    git submodule deinit --all -f
     echo "PAPERSPACE-AUTOMATED-TESTING: Testing complete"
 }
 
 # Prep the huggingface token
 export HUGGING_FACE_HUB_TOKEN=${7}
 
-pip_requirements_file="/workspace/testing/requirements-test-script.txt"
-while [ ! -f "${pip_requirements_file}" ]
-do
-    echo "waiting for checkout to be complete"
-    sleep 1
-done
-echo "Checkout complete"
+python -m pip install "examples-utils[jupyter] @ git+https://github.com/graphcore/examples-utils@8f57bfda96af84e3c931837bed052a657328d264"
+python -m pip install gradient
 # In sh single equal is needed for string compare.
 if [ "${4}" = "upload-reports" ]
 then
@@ -74,6 +67,5 @@ else
 fi
 # Make the notebook stop itself
 sleep 5
-python -m pip install gradient
 gradient apiKey ${1}
 gradient notebooks stop --id ${PAPERSPACE_METRIC_WORKLOAD_ID}
