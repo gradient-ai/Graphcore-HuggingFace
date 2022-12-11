@@ -12,6 +12,7 @@ gradient_repository_options: &gradient_repository_options
 
 Graphcore-HuggingFace-README_first:
   # <<: *gradient_repository_options
+  location: ../
   generated: true
   notebook:
     file: README_first.ipynb
