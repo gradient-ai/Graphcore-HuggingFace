@@ -36,7 +36,7 @@ run_tests(){
 
 
     export VIRTUAL_ENV="/some/fake/venv/GC-automated-paperspace-test-${4}"
-    LOG_FOLDER="${5}/log_${4}_$(date +'%Y-%m-%d-%H_%M')"
+    LOG_FOLDER="${5}/log_${4}_$(date +'%Y-%m-%d-%H_%M_%S')"
     TEST_CONFIG_FILE="${6}"
     mkdir -p ${LOG_FOLDER}
     cd /notebooks/
