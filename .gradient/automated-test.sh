@@ -65,6 +65,7 @@ else
     run_tests ${@}
 fi
 # Make the notebook stop itself
+echo "Test finished shutting down notebook"
 sleep 5
 gradient apiKey ${1}
 gradient notebooks stop --id ${PAPERSPACE_METRIC_WORKLOAD_ID}
