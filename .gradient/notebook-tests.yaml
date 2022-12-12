@@ -18,43 +18,6 @@ Graphcore-HuggingFace-README_first:
     file: README_first.ipynb
     timeout: 10000
 
-# Audio processing
-audio-processing-wav2vec2-fine-tuning-checkpoint:
-  # <<: *gradient_repository_options
-  location: ../audio-processing
-  generated: true
-  notebook:
-    file: wav2vec2-fine-tuning-checkpoint.ipynb
-    timeout: 10000
-  requirements_file: requirements.txt
-
-audio-processing-wav2vec2-inference-checkpoint:
-  # <<: *gradient_repository_options
-  location: ../audio-processing
-  generated: true
-  notebook:
-    file: wav2vec2-inference-checkpoint.ipynb
-    timeout: 10000
-  requirements_file: requirements.txt
-
-audio-processing-audio_classification:
-  # <<: *gradient_repository_options
-  location: ../audio-processing
-  generated: true
-  notebook:
-    file: audio_classification.ipynb
-    timeout: 10000
-
-
-# Image classification
-image_classification:
-  # <<: *gradient_repository_options
-  location: ../image-classification
-  generated: true
-  notebook:
-    file: image_classification.ipynb
-    timeout: 10000
-
 # Natural language processing
 nlp-introduction_to_optimum_graphcore:
   # <<: *gradient_repository_options
@@ -180,3 +143,41 @@ stable-diffusion-text_to_image_sd2:
     file: text_to_image_sd2.ipynb
     timeout: 10000
   requirements_file: requirements.txt
+
+
+# Audio processing
+audio-processing-wav2vec2-fine-tuning-checkpoint:
+  # <<: *gradient_repository_options
+  location: ../audio-processing
+  generated: true
+  notebook:
+    file: wav2vec2-fine-tuning-checkpoint.ipynb
+    timeout: 10000
+  requirements_file: requirements.txt
+
+audio-processing-wav2vec2-inference-checkpoint:
+  # <<: *gradient_repository_options
+  location: ../audio-processing
+  generated: true
+  notebook:
+    file: wav2vec2-inference-checkpoint.ipynb
+    timeout: 10000
+  requirements_file: requirements.txt
+
+audio-processing-audio_classification:
+  # <<: *gradient_repository_options
+  location: ../audio-processing
+  generated: true
+  notebook:
+    file: audio_classification.ipynb
+    timeout: 10000
+
+
+# Image classification
+image_classification:
+  # <<: *gradient_repository_options
+  location: ../image-classification
+  generated: true
+  notebook:
+    file: image_classification.ipynb
+    timeout: 10000
