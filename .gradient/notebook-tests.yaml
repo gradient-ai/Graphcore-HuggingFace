@@ -90,7 +90,7 @@ stable-diffusion-image_to_image:
   generated: true
   notebook:
     file: image_to_image.ipynb
-    timeout: 10000
+    timeout: 3000
   requirements_file: requirements.txt
 
 stable-diffusion-inpainting:
@@ -98,7 +98,7 @@ stable-diffusion-inpainting:
   generated: true
   notebook:
     file: inpainting.ipynb
-    timeout: 10000
+    timeout: 3000
   requirements_file: requirements.txt
 
 stable-diffusion-text_to_image:
@@ -106,7 +106,7 @@ stable-diffusion-text_to_image:
   generated: true
   notebook:
     file: text_to_image.ipynb
-    timeout: 10000
+    timeout: 3000
   requirements_file: requirements.txt
 
 stable-diffusion-text_to_image_sd2:
@@ -114,7 +114,7 @@ stable-diffusion-text_to_image_sd2:
   generated: true
   notebook:
     file: text_to_image_sd2.ipynb
-    timeout: 10000
+    timeout: 3000
   requirements_file: requirements.txt
 
 
