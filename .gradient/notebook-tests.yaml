@@ -119,21 +119,21 @@ stable-diffusion-text_to_image_sd2:
 
 
 # Audio processing
-audio-processing-wav2vec2-fine-tuning-checkpoint:
-  location: ../audio-processing
-  generated: true
-  notebook:
-    file: wav2vec2-fine-tuning-checkpoint.ipynb
-    timeout: 10000
-  requirements_file: requirements.txt
+# audio-processing-wav2vec2-fine-tuning-checkpoint:
+#   location: ../audio-processing
+#   generated: true
+#   notebook:
+#     file: wav2vec2-fine-tuning-checkpoint.ipynb
+#     timeout: 10000
+#   requirements_file: requirements.txt
 
-audio-processing-wav2vec2-inference-checkpoint:
-  location: ../audio-processing
-  generated: true
-  notebook:
-    file: wav2vec2-inference-checkpoint.ipynb
-    timeout: 10000
-  requirements_file: requirements.txt
+# audio-processing-wav2vec2-inference-checkpoint:
+#   location: ../audio-processing
+#   generated: true
+#   notebook:
+#     file: wav2vec2-inference-checkpoint.ipynb
+#     timeout: 10000
+#   requirements_file: requirements.txt
 
 audio-processing-audio_classification:
   location: ../audio-processing
