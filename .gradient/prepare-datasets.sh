@@ -24,7 +24,7 @@ symlink-public-resources() {
 
 echo "Starting preparation of datasets"
 # symlink exe_cache files
-exe_cache_source_dir="${PUBLIC_DATASET_DIR}/exe_cache"
+exe_cache_source_dir="${PUBLIC_DATASET_DIR}/poplar-executables-hf"
 symlink-public-resources "${exe_cache_source_dir}" $POPLAR_EXECUTABLE_CACHE_DIR
 # symlink HF datasets
 for dataset in ${PUBLIC_DATASET_DIR}/*; do
