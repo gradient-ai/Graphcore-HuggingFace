@@ -1,5 +1,5 @@
 integrations:
-  exe_cache:
+  poplar-executables-hf:
     type: dataset
     ref: paperspace/dslk3lcspbr0899:kxngv3e
   conll2003:
@@ -32,4 +32,3 @@ integrations:
   xsum:
     type: dataset
     ref: paperspace/dsl9ejgiaf370jr:h64gxpk
-
