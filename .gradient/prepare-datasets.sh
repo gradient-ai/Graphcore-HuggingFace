@@ -18,7 +18,6 @@ symlink-public-resources() {
     mkdir -p ${public_source_dir}
     cd ${public_source_dir}
     find -type d -exec mkdir -p "${target_dir}/{}" \;
-    #find -type f -not -name "*.lock" -exec cp -sP "${PWD}/{}" "${target_dir}/{}" \;
     find -type f -not -name "*.lock" -print0 | xargs -0 -P 50 -I {} sh -c "cp -sP \"${PWD}/{}\" \"${target_dir}/{}\""
     cd -
 }
@@ -32,7 +31,7 @@ for dataset in ${PUBLIC_DATASET_DIR}/*; do
     # don't symlink the poplar executables, that's handled above
     test "$dataset" = "$exe_cache_source_dir" && continue
     # symlink the actual datasets
-    symlink-public-resources $dataset $HF_DATASETS_CACHE
+    symlink-public-resources $dataset "${HF_DATASETS_CACHE}/$(basename ${dataset})"
 done
 # pre-install the correct version of optimum for this release
 python -m pip install "optimum-graphcore>0.4, <0.5"
