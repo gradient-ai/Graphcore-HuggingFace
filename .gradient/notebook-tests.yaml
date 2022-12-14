@@ -28,12 +28,13 @@ nlp-text_classification:
     file: text_classification.ipynb
     timeout: 10000
 
-nlp-language_modeling:
-  location: ../natural-language-processing
-  generated: true
-  notebook:
-    file: language_modeling.ipynb
-    timeout: 10000
+# Notebook was removed pending bug investigation on POD4
+# nlp-language_modeling:
+#   location: ../natural-language-processing
+#   generated: true
+#   notebook:
+#     file: language_modeling.ipynb
+#     timeout: 10000
 
 nlp-language_modelling_from_scratch:
   location: ../natural-language-processing
@@ -119,34 +120,44 @@ stable-diffusion-text_to_image_sd2:
 
 
 # Audio processing
-# audio-processing-wav2vec2-fine-tuning-checkpoint:
-#   location: ../audio-processing
-#   generated: true
-#   notebook:
-#     file: wav2vec2-fine-tuning-checkpoint.ipynb
-#     timeout: 10000
-#   requirements_file: requirements.txt
-
-# audio-processing-wav2vec2-inference-checkpoint:
-#   location: ../audio-processing
-#   generated: true
-#   notebook:
-#     file: wav2vec2-inference-checkpoint.ipynb
-#     timeout: 10000
-#   requirements_file: requirements.txt
-
-audio-processing-audio_classification:
+audio-processing-wav2vec2-fine-tuning-checkpoint:
   location: ../audio-processing
   generated: true
   notebook:
-    file: audio_classification.ipynb
+    file: wav2vec2-fine-tuning-checkpoint.ipynb
     timeout: 10000
+  requirements_file: requirements.txt
+
+audio-processing-wav2vec2-inference-checkpoint:
+  location: ../audio-processing
+  generated: true
+  notebook:
+    file: wav2vec2-inference-checkpoint.ipynb
+    timeout: 10000
+  requirements_file: requirements.txt
+
+# Notebook removed pending dataset upload
+# audio-processing-audio_classification:
+#   location: ../audio-processing
+#   generated: true
+#   notebook:
+#     file: audio_classification.ipynb
+#     timeout: 10000
 
 
 # Image classification
-image_classification:
-  location: ../image-classification
+# Notebook removed pending dataset upload
+# image_classification:
+#   location: ../image-classification
+#   generated: true
+#   notebook:
+#     file: image_classification.ipynb
+#     timeout: 10000
+
+# Useful references
+useful-managing-ipu-resources:
+  location: ../useful-tips
   generated: true
   notebook:
-    file: image_classification.ipynb
-    timeout: 10000
+    file: managing_ipu_resources.ipynb
+    timeout: 1000
