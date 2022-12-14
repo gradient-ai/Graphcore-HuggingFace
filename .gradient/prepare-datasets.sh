@@ -27,11 +27,10 @@ echo "Starting preparation of datasets"
 exe_cache_source_dir="${PUBLIC_DATASET_DIR}/poplar-executables-hf"
 symlink-public-resources "${exe_cache_source_dir}" $POPLAR_EXECUTABLE_CACHE_DIR
 # symlink HF datasets
-for dataset in ${PUBLIC_DATASET_DIR}/*; do
-    # don't symlink the poplar executables, that's handled above
-    test "$dataset" = "$exe_cache_source_dir" && continue
+HF_DATASETS="conll2003 glue imagefolder librispeech_asr squad superb swag wikitext wmt16 xsum"
+for dataset in ${HF_DATASETS}; do
     # symlink the actual datasets
-    symlink-public-resources $dataset "${HF_DATASETS_CACHE}/$(basename ${dataset})"
+    symlink-public-resources "${PUBLIC_DATASET_DIR}/${dataset}" "${HF_DATASETS_CACHE}/$(basename ${dataset})"
 done
 # pre-install the correct version of optimum for this release
 python -m pip install "optimum-graphcore>0.4, <0.5"
