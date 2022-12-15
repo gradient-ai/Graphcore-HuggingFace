@@ -28,7 +28,8 @@ symlink-public-resources() {
     fuse-overlayfs -o lowerdir=${public_source_dir},upperdir=${upperdir},workdir=${workdir} ${target_dir}
 
 }
-apt-get install fuse-overlayfs
+apt-get update
+apt install -y fuse-overlayfs
 echo "Starting preparation of datasets"
 # symlink exe_cache files
 exe_cache_source_dir="${PUBLIC_DATASET_DIR}/poplar-executables-hf"
