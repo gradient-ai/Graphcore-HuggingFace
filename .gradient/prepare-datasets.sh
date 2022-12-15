@@ -15,13 +15,20 @@ symlink-public-resources() {
     echo "Symlinking - ${public_source_dir} to ${target_dir}"
 
     # Make sure it exists otherwise you'll copy your current dir
-    mkdir -p ${public_source_dir}
-    cd ${public_source_dir}
-    find -type d -exec mkdir -p "${target_dir}/{}" \;
-    find -type f -not -name "*.lock" -print0 | xargs -0 -P 50 -I {} sh -c "cp -sP \"${PWD}/{}\" \"${target_dir}/{}\""
-    cd -
-}
+    # mkdir -p ${public_source_dir}
+    # cd ${public_source_dir}
+    # find -type d -exec mkdir -p "${target_dir}/{}" \;
+    # find -type f -not -name "*.lock" -print0 | xargs -0 -P 50 -I {} sh -c "cp -sP \"${PWD}/{}\" \"${target_dir}/{}\""
+    # cd -
+    mkdir -p ${target_dir}
+    workdir="/fusedoverlay/workdirs/${public_source_dir}"
+    upperdir="/fusedoverlay/upperdir/${public_source_dir}"
+    mkdir -p ${workdir}
+    mkdir -p ${upperdir}
+    fuse-overlayfs -o lowerdir=${public_source_dir},upperdir=${upperdir},workdir=${workdir} ${target_dir}
 
+}
+apt-get install fuse-overlayfs
 echo "Starting preparation of datasets"
 # symlink exe_cache files
 exe_cache_source_dir="${PUBLIC_DATASET_DIR}/poplar-executables-hf"
