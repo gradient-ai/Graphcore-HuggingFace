@@ -1,34 +1,34 @@
 integrations:
-  exe_cache:
+  poplar-executables-hf:
     type: dataset
-    ref: paperspace/dshvo114vn5e17y:pdik2pr
-  # squad-huggingface:
-  #   type: dataset
-  #   ref: paperspace/dsn5wmo5xkgyqug:e7pc9wn
-  # conll2003-huggingface:
-  #   type: dataset
-  #   ref: paperspace/dsv8sflblahlk5a:sle9lnd
-  # imagefolder-huggingface:
-  #   type: dataset
-  #   ref: paperspace/dsffgua8bwc0kar:q3cz78h
-  # superb-huggingface:
-  #   type: dataset
-  #   ref: paperspace/dsuo04ok5m0xlbt:mc9gtb6
-  # swag-huggingface:
-  #   type: dataset
-  #   ref: paperspace/dsuvlmj7kz672io:2x9id6x
-  # xsum-huggingface:
-  #   type: dataset
-  #   ref: paperspace/ds0d117a65azqrc:6a4r0v4
-  # wmt16-huggingface:
-  #   type: dataset
-  #   ref: paperspace/dsvb67pd37d582q:z1vk5xn
-  # wikitext-huggingface:
-  #   type: dataset
-  #   ref: paperspace/ds1swj6fp1w93ww:d4gphuz
-  # librispeech_asr-huggingface:
-  #   type: dataset
-  #   ref: paperspace/dsrmuac2fm5juiz:dmj9o0j
-  # glue-huggingface:
-  #   type: dataset
-  #   ref: paperspace/ds30bjcgo4467mz:29gw3mu
+    ref: paperspace/dslk3lcspbr0899:kxngv3e
+  conll2003:
+    type: dataset
+    ref: paperspace/ds0uq8lavg1ansc:dzexfc4
+  glue:
+    type: dataset
+    ref: paperspace/dsalacr4p2hnbnq:ckb5h6e
+  imagefolder:
+    type: dataset
+    ref: paperspace/dsn6uurmu574eoj:onep57f
+  librispeech_asr:
+    type: dataset
+    ref: paperspace/ds1uofih1koi71b:xi0qac2
+  squad:
+    type: dataset
+    ref: paperspace/dsw2jrzd591wjrw:t6nyw3u
+  superb:
+    type: dataset
+    ref: paperspace/dsgrgvk6f7zecuw:fov2xl1
+  swag:
+    type: dataset
+    ref: paperspace/ds8z0ou4dlgavch:hdqh8jt
+  wikitext:
+    type: dataset
+    ref: paperspace/dsnq4bm2ghk3e55:mj4yzed
+  wmt16:
+    type: dataset
+    ref: paperspace/dsunaz44rqeig90:guyeb56
+  xsum:
+    type: dataset
+    ref: paperspace/dsl9ejgiaf370jr:h64gxpk
