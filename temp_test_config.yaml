@@ -1,14 +1,14 @@
 
 # # Natural language processing
 # nlp-introduction_to_optimum_graphcore:
-#   location: ../natural-language-processing
+#   location: natural-language-processing
 #   generated: true
 #   notebook:
 #     file: introduction_to_optimum_graphcore.ipynb
 #     timeout: 10000
 
 nlp-sentiment-analysis:
-  location: ../natural-language-processing
+  location: natural-language-processing
   generated: true
   notebook:
     file: sentiment_analysis.ipynb
