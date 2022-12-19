@@ -136,23 +136,21 @@ audio-processing-wav2vec2-inference-checkpoint:
     timeout: 10000
   requirements_file: requirements.txt
 
-# Notebook removed pending dataset upload
-# audio-processing-audio_classification:
-#   location: ../audio-processing
-#   generated: true
-#   notebook:
-#     file: audio_classification.ipynb
-#     timeout: 10000
+audio-processing-audio_classification:
+  location: ../audio-processing
+  generated: true
+  notebook:
+    file: audio_classification.ipynb
+    timeout: 10000
 
 
 # Image classification
-# Notebook removed pending dataset upload
-# image_classification:
-#   location: ../image-classification
-#   generated: true
-#   notebook:
-#     file: image_classification.ipynb
-#     timeout: 10000
+image_classification:
+  location: ../image-classification
+  generated: true
+  notebook:
+    file: image_classification.ipynb
+    timeout: 10000
 
 # Useful references
 useful-managing-ipu-resources:
