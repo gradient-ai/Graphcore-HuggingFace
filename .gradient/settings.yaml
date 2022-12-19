@@ -32,6 +32,6 @@ integrations:
   xsum:
     type: dataset
     ref: paperspace/dsl9ejgiaf370jr:h64gxpk
-  downloads:
+  graphcore-downloads:
     type: dataset
     ref: paperspace/ds52xkj0j1elf02:5nesnjo
