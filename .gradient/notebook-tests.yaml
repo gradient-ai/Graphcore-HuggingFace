@@ -136,12 +136,13 @@ audio-processing-wav2vec2-inference-checkpoint:
     timeout: 10000
   requirements_file: requirements.txt
 
-audio-processing-audio_classification:
-  location: ../audio-processing
-  generated: true
-  notebook:
-    file: audio_classification.ipynb
-    timeout: 10000
+# Removed due to silent failure
+# audio-processing-audio_classification:
+#   location: ../audio-processing
+#   generated: true
+#   notebook:
+#     file: audio_classification.ipynb
+#     timeout: 10000
 
 
 # Image classification
