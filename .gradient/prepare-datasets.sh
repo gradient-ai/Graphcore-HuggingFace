@@ -40,6 +40,7 @@ for dataset in ${HF_DATASETS}; do
     # symlink the actual datasets
     symlink-public-resources "${PUBLIC_DATASET_DIR}/${dataset}" "${HF_DATASETS_CACHE}/$(basename ${dataset})"
 done
+symlink-public-resources "${PUBLIC_DATASET_DIR}/graphcore-downloads" "${HF_DATASETS_CACHE}/downloads"
 # pre-install the correct version of optimum for this release
 python -m pip install "optimum-graphcore>0.4, <0.5"
 
