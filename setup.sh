@@ -31,6 +31,7 @@ export HF_DATASETS_CACHE="/tmp/huggingface_caches/datasets"
 # Set framework specific variables
 export POPTORCH_CACHE_DIR="${POPLAR_EXECUTABLE_CACHE_DIR}"
 export POPTORCH_LOG_LEVEL=ERR
+export RDMAV_FORK_SAFE=1
 
 nohup /notebooks/.gradient/prepare-datasets.sh ${@} & tail -f nohup.out &
 
