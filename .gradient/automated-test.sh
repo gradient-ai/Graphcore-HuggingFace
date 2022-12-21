@@ -48,6 +48,7 @@ run_tests(){
         --log-dir $LOG_FOLDER \
         --gc-monitor \
         --cloning-directory /tmp/clones \
+        --logging DEBUG \
         --additional-metrics
 
     tar -czvf "${LOG_FOLDER}.tar.gz" ${LOG_FOLDER}
