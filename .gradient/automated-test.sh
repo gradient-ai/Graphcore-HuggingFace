@@ -40,15 +40,11 @@ run_tests(){
     TEST_CONFIG_FILE="${6}"
     mkdir -p ${LOG_FOLDER}
     cd /notebooks/
-    export POPART_LOG_LEVEL=DEBUG
-    export POPLAR_LOG_LEVEL=DEBUG
-    export POPTORCH_LOG_LEVEL=DEBUG
     python -m examples_utils platform_assessment --spec ${TEST_CONFIG_FILE} \
         --ignore-errors \
         --log-dir $LOG_FOLDER \
         --gc-monitor \
         --cloning-directory /tmp/clones \
-        --logging DEBUG \
         --additional-metrics
 
     tar -czvf "${LOG_FOLDER}.tar.gz" ${LOG_FOLDER}
