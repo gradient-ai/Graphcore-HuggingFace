@@ -21,6 +21,14 @@ nlp-sentiment-analysis:
     file: sentiment_analysis.ipynb
     timeout: 10000
 
+
+nlp-ner-gradio:
+  location: ../natural-language-processing
+  generated: true
+  notebook:
+    file: name-entity-extraction.ipynb
+    timeout: 10000
+
 nlp-text_classification:
   location: ../natural-language-processing
   generated: true
