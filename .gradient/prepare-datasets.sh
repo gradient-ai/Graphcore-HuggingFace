@@ -42,7 +42,7 @@ for dataset in ${HF_DATASETS}; do
 done
 symlink-public-resources "${PUBLIC_DATASET_DIR}/graphcore-downloads" "${HF_DATASETS_CACHE}/downloads"
 # pre-install the correct version of optimum for this release
-python -m pip install "optimum-graphcore>0.4, <0.5"
+python -m pip install "optimum-graphcore>=0.5, <0.6"
 
 echo "Finished running setup.sh."
 # Run automated test if specified
