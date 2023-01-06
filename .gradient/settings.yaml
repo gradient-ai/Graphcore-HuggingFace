@@ -35,3 +35,6 @@ integrations:
   graphcore-downloads:
     type: dataset
     ref: paperspace/ds52xkj0j1elf02:5nesnjo
+  dfki-sentinel-eurosat:
+    type: dataset
+    ref: paperspace/ds8p6sv96fl1att:iv6778i
