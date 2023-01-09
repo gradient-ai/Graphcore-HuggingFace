@@ -32,7 +32,7 @@ apt update -y
 apt install -y libfuse3-dev fuse-overlayfs
 echo "Starting preparation of datasets"
 # symlink exe_cache files
-exe_cache_source_dir="${PUBLIC_DATASET_DIR}/poplar-executables-hf"
+exe_cache_source_dir="${PUBLIC_DATASET_DIR}/poplar-executables-hf-3-1"
 symlink-public-resources "${exe_cache_source_dir}" $POPLAR_EXECUTABLE_CACHE_DIR
 # symlink HF datasets
 HF_DATASETS="conll2003 glue imagefolder librispeech_asr squad superb swag wikitext wmt16 xsum"
