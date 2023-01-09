@@ -1,7 +1,7 @@
 integrations:
   poplar-executables-hf-3-1:
     type: dataset
-    ref: paperspace/dse3rnja361pu9h:4o19h5f
+    ref: paperspace/dse3rnja361pu9h:own5ts8
   conll2003:
     type: dataset
     ref: paperspace/ds0uq8lavg1ansc:dzexfc4
