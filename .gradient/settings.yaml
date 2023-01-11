@@ -1,7 +1,7 @@
 integrations:
-  poplar-executables-hf:
+  poplar-executables-hf-3-1:
     type: dataset
-    ref: paperspace/dslk3lcspbr0899:kxngv3e
+    ref: paperspace/dse3rnja361pu9h:pn62elc
   conll2003:
     type: dataset
     ref: paperspace/ds0uq8lavg1ansc:dzexfc4
@@ -35,3 +35,6 @@ integrations:
   graphcore-downloads:
     type: dataset
     ref: paperspace/ds52xkj0j1elf02:5nesnjo
+  dfki-sentinel-eurosat:
+    type: dataset
+    ref: paperspace/ds8p6sv96fl1att:k5j4cob
