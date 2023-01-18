@@ -17,9 +17,10 @@ integrations:
   squad:
     type: dataset
     ref: paperspace/dsw2jrzd591wjrw:t6nyw3u
-  superb:
-    type: dataset
-    ref: paperspace/dsgrgvk6f7zecuw:fov2xl1
+  # removing superb while the audio classification nb is removed
+  # superb:
+  #   type: dataset
+  #   ref: paperspace/dsgrgvk6f7zecuw:fov2xl1
   swag:
     type: dataset
     ref: paperspace/ds8z0ou4dlgavch:hdqh8jt
@@ -32,9 +33,10 @@ integrations:
   xsum:
     type: dataset
     ref: paperspace/dsl9ejgiaf370jr:h64gxpk
-  graphcore-downloads:
-    type: dataset
-    ref: paperspace/ds52xkj0j1elf02:5nesnjo
+  # removing downloads while the audio classification nb is removed
+  # graphcore-downloads:
+  #   type: dataset
+  #   ref: paperspace/ds52xkj0j1elf02:5nesnjo
   dfki-sentinel-eurosat:
     type: dataset
     ref: paperspace/ds8p6sv96fl1att:k5j4cob
