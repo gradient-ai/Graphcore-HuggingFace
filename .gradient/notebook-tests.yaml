@@ -73,7 +73,7 @@ nlp-summarization:
     timeout: 10000
 
 nlp-token_classification:
-  location: ../natural-language-processing
+  location: ../natural-language-processing/other-use-cases
   generated: true
   notebook:
     file: token_classification.ipynb
