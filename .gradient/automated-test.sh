@@ -53,7 +53,7 @@ run_tests(){
 # Prep the huggingface token
 export HUGGING_FACE_HUB_TOKEN=${7}
 
-python -m pip install "examples-utils[jupyter] @ git+https://github.com/graphcore/examples-utils@8f57bfda96af84e3c931837bed052a657328d264"
+python -m pip install "examples-utils[jupyter] @ git+https://github.com/graphcore/examples-utils@latest_stable"
 python -m pip install gradient
 # In sh single equal is needed for string compare.
 if [ "${4}" = "upload-reports" ]
