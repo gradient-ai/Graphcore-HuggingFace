@@ -11,8 +11,7 @@
 # 4: Either the runtime in which we are running or 'upload-reports'
 # 5: Folder in which to save/look for tar.gz report archives
 # 6: Huggingface token
-# 7: Examples utils spec file to process
-# @:7 Huggingface token
+# @:7 Examples utils spec file to process and benchmark 
 
 upload_report() {
     # Uploads files to a gradient dataset
