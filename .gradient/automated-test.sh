@@ -38,20 +38,22 @@ run_tests(){
 
     export VIRTUAL_ENV="/some/fake/venv/GC-automated-paperspace-test-${4}"
     LOG_FOLDER="${5}/log_${4}_$(date +'%Y-%m-%d-%H_%M_%S')"
-    TEST_CONFIG_FILE="${@:7}"
+    TEST_CONFIG_FILE="${6}"
     mkdir -p ${LOG_FOLDER}
     cd /notebooks/
+    echo "here"
+    echo ${TEST_CONFIG_FILE} "${@:8}"
     python -m examples_utils platform_assessment --spec ${TEST_CONFIG_FILE} "${@:8}" \
         --ignore-errors \
         --log-dir $LOG_FOLDER \
         --gc-monitor \
         --cloning-directory /tmp/clones \
-        --additional-metrics \ 
+        --additional-metrics 
     tar -czvf "${LOG_FOLDER}.tar.gz" ${LOG_FOLDER}
     echo "PAPERSPACE-AUTOMATED-TESTING: Testing complete"
 }
 # Prep the huggingface token
-export HUGGING_FACE_HUB_TOKEN=${6}
+export HUGGING_FACE_HUB_TOKEN=${7}
 
 python -m pip install "examples-utils[jupyter] @ git+https://github.com/graphcore/examples-utils@8f57bfda96af84e3c931837bed052a657328d264"
 python -m pip install gradient
