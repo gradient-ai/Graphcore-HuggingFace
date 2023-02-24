@@ -28,8 +28,10 @@ symlink-public-resources() {
     fuse-overlayfs -o lowerdir=${public_source_dir},upperdir=${upperdir},workdir=${workdir} ${target_dir}
 
 }
+
 apt update -y
-apt install -y libfuse3-dev fuse-overlayfs
+apt install -o DPkg::Lock::Timeout=120 -y psmisc libfuse3-dev fuse-overlayfs
+
 echo "Starting preparation of datasets"
 # symlink exe_cache files
 exe_cache_source_dir="${PUBLIC_DATASET_DIR}/poplar-executables-hf-3-1"
