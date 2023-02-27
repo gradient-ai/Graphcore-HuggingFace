@@ -55,9 +55,7 @@ python -m pip install "optimum-graphcore>=0.5, <0.6"
 echo "Finished running setup.sh."
 # Run automated test if specified
 if [[ "$1" == "test" ]]; then
-    # source .gradient/automated-test.sh "${@:2}"
-    bash /notebooks/.gradient/automated-test.sh $2 $3 $4 $5 $6 $7 $8
+    bash /notebooks/.gradient/automated-test.sh "${@:2}"
 elif [[ "$2" == "test" ]]; then
-    # source .gradient/automated-test.sh "${@:2}"
-    bash /notebooks/.gradient/automated-test.sh $3 $4 $5 $6 $7 $8 $9
+    bash /notebooks/.gradient/automated-test.sh "${@:3}"
 fi
