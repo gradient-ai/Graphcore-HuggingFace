@@ -41,8 +41,6 @@ run_tests(){
     TEST_CONFIG_FILE="${6}"
     mkdir -p ${LOG_FOLDER}
     cd /notebooks/
-    echo "here"
-    echo ${TEST_CONFIG_FILE} "${@:8}"
     python -m examples_utils platform_assessment --spec ${TEST_CONFIG_FILE} "${@:8}" \
         --ignore-errors \
         --log-dir $LOG_FOLDER \
