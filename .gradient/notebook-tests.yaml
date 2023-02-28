@@ -30,7 +30,7 @@ nlp-ner-gradio:
     timeout: 10000
 
 nlp-text_classification:
-  location: ../natural-language-processing
+  location: ../natural-language-processing/other-use-cases
   generated: true
   notebook:
     file: text_classification.ipynb
@@ -45,35 +45,35 @@ nlp-text_classification:
 #     timeout: 10000
 
 nlp-language_modelling_from_scratch:
-  location: ../natural-language-processing
+  location: ../natural-language-processing/other-use-cases
   generated: true
   notebook:
     file: language_modelling_from_scratch.ipynb
     timeout: 10000
 
 nlp-multiple_choice:
-  location: ../natural-language-processing
+  location: ../natural-language-processing/other-use-cases
   generated: true
   notebook:
     file: multiple_choice.ipynb
     timeout: 10000
 
 nlp-question_answering:
-  location: ../natural-language-processing
+  location: ../natural-language-processing/other-use-cases
   generated: true
   notebook:
     file: question_answering.ipynb
     timeout: 10000
 
 nlp-summarization:
-  location: ../natural-language-processing
+  location: ../natural-language-processing/other-use-cases
   generated: true
   notebook:
     file: summarization.ipynb
     timeout: 10000
 
 nlp-token_classification:
-  location: ../natural-language-processing
+  location: ../natural-language-processing/other-use-cases
   generated: true
   notebook:
     file: token_classification.ipynb
@@ -87,7 +87,7 @@ nlp-translation:
     timeout: 10000
 
 nlp-external_model:
-  location: ../natural-language-processing
+  location: ../natural-language-processing/other-use-cases
   generated: true
   notebook:
     file: external_model.ipynb
