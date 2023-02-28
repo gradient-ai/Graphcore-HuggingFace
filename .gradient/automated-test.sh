@@ -10,8 +10,9 @@
 # 3: Version ID
 # 4: Either the runtime in which we are running or 'upload-reports'
 # 5: Folder in which to save/look for tar.gz report archives
-# 6: Examples utils spec file to process
+# 6: Examples utils spec file to process and benchmark 
 # 7: Huggingface token
+# @:8 other arguments are passed to the `examples_utils platform_assesment` command
 
 upload_report() {
     # Uploads files to a gradient dataset
@@ -40,13 +41,12 @@ run_tests(){
     TEST_CONFIG_FILE="${6}"
     mkdir -p ${LOG_FOLDER}
     cd /notebooks/
-    python -m examples_utils platform_assessment --spec ${TEST_CONFIG_FILE} \
+    python -m examples_utils platform_assessment --spec ${TEST_CONFIG_FILE} "${@:8}" \
         --ignore-errors \
         --log-dir $LOG_FOLDER \
         --gc-monitor \
         --cloning-directory /tmp/clones \
-        --additional-metrics
-
+        --additional-metrics 
     tar -czvf "${LOG_FOLDER}.tar.gz" ${LOG_FOLDER}
     echo "PAPERSPACE-AUTOMATED-TESTING: Testing complete"
 }
