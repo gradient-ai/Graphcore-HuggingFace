@@ -42,7 +42,6 @@ run_tests(){
     mkdir -p ${LOG_FOLDER}
     cd /notebooks/
     python -m examples_utils platform_assessment --spec ${TEST_CONFIG_FILE} "${@:8}" \
-        --ignore-errors \
         --log-dir $LOG_FOLDER \
         --gc-monitor \
         --cloning-directory /tmp/clones \
