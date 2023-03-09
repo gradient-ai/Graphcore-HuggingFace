@@ -168,3 +168,25 @@ useful-managing-ipu-resources:
   notebook:
     file: managing_ipu_resources.ipynb
     timeout: 1000
+
+# Packed BERT tests
+packed-bert-single-label:
+  location: ../packed-bert/
+  generated: true
+  notebook:
+    file: packedBERT_single_label_text_classification.ipynb
+    timeout: 10000
+
+packed-bert-multi-label:
+  location: ../packed-bert/
+  generated: true
+  notebook:
+    file: packedBERT_multi_label_text_classification.ipynb
+    timeout: 10000
+
+packed-bert-question-answering:
+  location: ../packed-bert/
+  generated: true
+  notebook:
+    file: packedBERT_question_answering.ipynb
+    timeout: 10000
