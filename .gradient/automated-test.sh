@@ -15,6 +15,8 @@
 # 8: examples-utils revision
 # @:9 other arguments are passed to the `examples_utils platform_assesment` command
 
+set -x
+
 upload_report() {
     # Uploads files to a gradient dataset
     python -m pip install gradient
