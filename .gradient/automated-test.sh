@@ -38,7 +38,6 @@ run_tests(){
     # set variable matching the standard Paperspace entry point
     export PIP_DISABLE_PIP_VERSION_CHECK=1
 
-
     export VIRTUAL_ENV="/some/fake/venv/GC-automated-paperspace-test-${4}"
     LOG_FOLDER="${5}/log_${4}_$(date +'%Y-%m-%d-%H_%M_%S')"
     TEST_CONFIG_FILE="${6}"
@@ -49,6 +48,7 @@ run_tests(){
         --gc-monitor \
         --cloning-directory /tmp/clones \
         --additional-metrics
+
     tar -czvf "${LOG_FOLDER}.tar.gz" ${LOG_FOLDER}
     echo "PAPERSPACE-AUTOMATED-TESTING: Testing complete"
 }
