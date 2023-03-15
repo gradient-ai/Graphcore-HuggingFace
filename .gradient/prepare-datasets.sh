@@ -1,6 +1,7 @@
 #! /usr/bin/env bash 
 set -u 
 set -o pipefail
+set -x 
 
 if [ ! "$(command -v fuse-overlayfs)" ]
 then
