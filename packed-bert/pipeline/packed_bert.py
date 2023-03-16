@@ -107,6 +107,8 @@ class PackedBertTextClassificationPipeline:
                 )
         else:
             self.ipu_config = ipu_config
+            if self.executable_cache_dir is not None:
+                self.ipu_config.executable_cache_dir = self.executable_cache_dir 
 
         self.gbs = (
             self.ipu_config.inference_device_iterations
@@ -292,6 +294,8 @@ class PackedBertQuestionAnsweringPipeline:
                 )
         else:
             self.ipu_config = ipu_config
+            if self.executable_cache_dir is not None:
+                self.ipu_config.executable_cache_dir = self.executable_cache_dir 
 
         self.gbs = (
             self.ipu_config.inference_device_iterations
