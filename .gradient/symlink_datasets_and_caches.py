@@ -1,3 +1,4 @@
+#! /usr/bin/env -S python3 -u
 import json
 import time
 from pathlib import Path
