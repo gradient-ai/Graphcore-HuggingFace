@@ -4,21 +4,10 @@ import time
 from pathlib import Path
 import subprocess
 import os
+import warnings
+from typing import List
 
-
-# read in symlink config file
-with open(f"{Path(__file__).parent.absolute().as_posix()}/symlink_config.json", "r") as f:
-    json_data = f.read()
-
-# substitute environment variables in the JSON data
-json_data = os.path.expandvars(json_data)
-# parse the json data
-config = json.loads(json_data)
-
-# loop through each key-value pair
-# the key is the target directory, the value is a list of source directories
-for target_dir, source_dirs_list in config.items():
-    # need to wait until the dataset has been mounted (async on Paperspace's end)
+def check_dataset_is_mounted(source_dirs_list: List[str]) -> List[str]:
     source_dirs_exist_paths = []
     for source_dir in source_dirs_list:
         source_dir_path = Path(source_dir)
@@ -29,27 +18,51 @@ for target_dir, source_dirs_list in config.items():
             time.sleep(1)
             COUNTER += 1
 
-        # dataset doesn't exist after 300s, so skip it
         if COUNTER == 300:
-            print(f"Abandoning symlink! - source dataset {source_dir} has not been mounted & populated after 5 minutes.")
-            break
+            warnings.warn(f"Abandoning symlink! - source dataset {source_dir} has not been mounted & populated after 5 minutes.")
         else:
             print(f"Found dataset {source_dir}")
             source_dirs_exist_paths.append(source_dir)
-    
-    # create overlays for source dataset dirs 
-    if len(source_dirs_exist_paths) > 0:
-        print(f"Symlinking - {source_dirs_exist_paths} to {target_dir}")
-        print("-" * 100)
 
-        Path(target_dir).mkdir(parents=True, exist_ok=True)
+    return source_dirs_exist_paths
 
-        workdir_path = Path("/fusedoverlay/workdirs" + target_dir)
-        workdir_path.mkdir(parents=True, exist_ok=True)
-        upperdir_path = Path("/fusedoverlay/upperdir" + target_dir) 
-        upperdir_path.mkdir(parents=True, exist_ok=True)
 
-        lowerdirs = ":".join(source_dirs_exist_paths)
-        overlay_command = f"fuse-overlayfs -o lowerdir={lowerdirs},upperdir={upperdir_path.as_posix()},workdir={workdir_path.as_posix()} {target_dir}"
-        subprocess.run(overlay_command.split(), stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+def create_overlays(source_dirs_exist_paths: List[str], target_dir: str) -> None:
+    print(f"Symlinking - {source_dirs_exist_paths} to {target_dir}")
+    print("-" * 100)
+
+    Path(target_dir).mkdir(parents=True, exist_ok=True)
+
+    workdir = Path("/fusedoverlay/workdirs" + target_dir)
+    workdir.mkdir(parents=True, exist_ok=True)
+    upperdir = Path("/fusedoverlay/upperdir" + target_dir) 
+    upperdir.mkdir(parents=True, exist_ok=True)
+
+    lowerdirs = ":".join(source_dirs_exist_paths)
+    overlay_command = f"fuse-overlayfs -o lowerdir={lowerdirs},upperdir={upperdir.as_posix()},workdir={workdir.as_posix()} {target_dir}"
+    subprocess.run(overlay_command.split(), stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+
+    return
+
+
+def main():
+    # read in symlink config file
+    json_data = (Path(__file__).resolve().parent / "symlink_config.json").read_text()
+
+    # substitute environment variables in the JSON data
+    json_data = os.path.expandvars(json_data)
+    config = json.loads(json_data)
+
+    # loop through each key-value pair
+    # the key is the target directory, the value is a list of source directories
+    for target_dir, source_dirs_list in config.items():
+        # need to wait until the dataset has been mounted (async on Paperspace's end)
+        source_dirs_exist_paths = check_dataset_is_mounted(source_dirs_list)
+        
+        # create overlays for source dataset dirs that are mounted and populated
+        if len(source_dirs_exist_paths) > 0:
+            create_overlays(source_dirs_exist_paths, target_dir)
+
+if __name__ == "__main__":
+    main()
 
