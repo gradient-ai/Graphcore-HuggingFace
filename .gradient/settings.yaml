@@ -40,3 +40,32 @@ integrations:
   dfki-sentinel-eurosat:
     type: dataset
     ref: paperspace/ds8p6sv96fl1att:k5j4cob
+  bert-base-uncased-sst2:
+    type: dataset
+    ref: paperspace/dskrqljie6pti8y:mfqq5qk
+  bert-base-uncased-go_emotions:
+    type: dataset
+    ref: paperspace/dsz2f8usk60xbos:n3h8ko3
+  bert-base-uncased-squad:
+    type: dataset
+    ref: paperspace/ds9ogwc0fbfh799:3mv59lg
+  packed_bert_slseqcls_exe_cache:
+    type: dataset
+    ref: paperspace/dsfg0gcuqbr0pfc:0pss84k
+  packed_bert_mlseqcls_exe_cache:
+    type: dataset
+    ref: paperspace/dsevh3ol36qzpz2:1yme9yi
+  packed_bert_qa_exe_cache:
+    type: dataset
+    ref: paperspace/dsson0ib8byvqpf:tcgts2v
+  packed_bert_slseqcls_dataset_cache:
+    type: dataset
+    ref: paperspace/dsuuz3dih9su40i:npvb833
+  packed_bert_mlseqcls_dataset_cache:
+    type: dataset
+    ref: paperspace/dsuxwz4nqbbs07s:jipm3jh
+  packed_bert_qa_dataset_cache:
+    type: dataset
+    ref: paperspace/dssvktzrzcoaumk:5zhp5mf
+
+
