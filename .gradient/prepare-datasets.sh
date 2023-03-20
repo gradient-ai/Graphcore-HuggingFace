@@ -40,16 +40,16 @@ fi
 
 echo "Starting preparation of datasets"
 # symlink exe_cache files
-exe_cache_source_dir="${PUBLIC_DATASET_DIR}/poplar-executables-hf-3-1"
+exe_cache_source_dir="${PUBLIC_DATASETS_DIR}/poplar-executables-hf-3-1"
 symlink-public-resources "${exe_cache_source_dir}" $POPLAR_EXECUTABLE_CACHE_DIR
 # symlink HF datasets
 HF_DATASETS="conll2003 glue imagefolder librispeech_asr squad swag wikitext wmt16 xsum"
 for dataset in ${HF_DATASETS}; do
     # symlink the actual datasets
-    symlink-public-resources "${PUBLIC_DATASET_DIR}/${dataset}" "${HF_DATASETS_CACHE}/$(basename ${dataset})"
+    symlink-public-resources "${PUBLIC_DATASETS_DIR}/${dataset}" "${HF_DATASETS_CACHE}/$(basename ${dataset})"
 done
 # Image classification dataset
-symlink-public-resources "${PUBLIC_DATASET_DIR}/dfki-sentinel-eurosat" "${DATASET_DIR}/dfki-sentinel-eurosat"
+symlink-public-resources "${PUBLIC_DATASETS_DIR}/dfki-sentinel-eurosat" "${DATASETS_DIR}/dfki-sentinel-eurosat"
 # pre-install the correct version of optimum for this release
 python -m pip install "optimum-graphcore>=0.5, <0.6"
 
