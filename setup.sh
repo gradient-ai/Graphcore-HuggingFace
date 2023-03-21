@@ -15,14 +15,14 @@ fi
 export NUM_AVAILABLE_IPU=${IPU_ARG}
 export GRAPHCORE_POD_TYPE="pod${IPU_ARG}"
 export POPLAR_EXECUTABLE_CACHE_DIR="/tmp/exe_cache"
-export DATASET_DIR="/tmp/dataset_cache"
+export DATASETS_DIR="/tmp/dataset_cache"
 export CHECKPOINT_DIR="/tmp/checkpoints"
 export PIP_DISABLE_PIP_VERSION_CHECK=1
 export CACHE_DIR="/tmp"
 
 # mounted public dataset directory (path in the container)
 # in the Paperspace environment this would be ="/datasets"
-export PUBLIC_DATASET_DIR="/datasets"
+export PUBLIC_DATASETS_DIR="/datasets"
 
 export HUGGINGFACE_HUB_CACHE="/tmp/huggingface_caches"
 export TRANSFORMERS_CACHE="/tmp/huggingface_caches/checkpoints"
