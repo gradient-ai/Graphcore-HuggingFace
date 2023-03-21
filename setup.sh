@@ -12,7 +12,7 @@ if [[ "$1" == "test" ]]; then
 else
     IPU_ARG=${1:-"${DETECTED_NUMBER_OF_IPUS}"}
 fi
-echo "Graphcore setup- Detected ${DETECTED_NUMBER_OF_IPUS} IPUs"
+echo "Graphcore setup - Detected ${DETECTED_NUMBER_OF_IPUS} IPUs"
 
 export NUM_AVAILABLE_IPU=${IPU_ARG}
 export GRAPHCORE_POD_TYPE="pod${IPU_ARG}"
