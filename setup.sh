@@ -5,12 +5,14 @@
 # called from root folder in container
 # SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
+echo "Graphcore setup - Starting notebook setup"
 DETECTED_NUMBER_OF_IPUS=$(python .gradient/available_ipus.py)
 if [[ "$1" == "test" ]]; then
     IPU_ARG="${DETECTED_NUMBER_OF_IPUS}"
 else
     IPU_ARG=${1:-"${DETECTED_NUMBER_OF_IPUS}"}
 fi
+echo "Graphcore setup- Detected ${DETECTED_NUMBER_OF_IPUS} IPUs"
 
 export NUM_AVAILABLE_IPU=${IPU_ARG}
 export GRAPHCORE_POD_TYPE="pod${IPU_ARG}"
@@ -33,9 +35,11 @@ export POPTORCH_CACHE_DIR="${POPLAR_EXECUTABLE_CACHE_DIR}"
 export POPTORCH_LOG_LEVEL=ERR
 export RDMAV_FORK_SAFE=1
 
+echo "Graphcore setup - Spawning dataset preparation process"
 nohup /notebooks/.gradient/prepare-datasets.sh ${@} & tail -f nohup.out &
 
 export PIP_DISABLE_PIP_VERSION_CHECK=1 CACHE_DIR=/tmp
+echo "Graphcore setup - Starting Jupyter kernel"
 jupyter lab --allow-root --ip=0.0.0.0 --no-browser --ServerApp.trust_xheaders=True \
             --ServerApp.disable_check_xsrf=False --ServerApp.allow_remote_access=True \
             --ServerApp.allow_origin='*' --ServerApp.allow_credentials=True
