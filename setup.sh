@@ -13,6 +13,17 @@ else
     IPU_ARG=${1:-"${DETECTED_NUMBER_OF_IPUS}"}
 fi
 echo "Graphcore setup - Detected ${DETECTED_NUMBER_OF_IPUS} IPUs"
+if [[ "${DETECTED_NUMBER_OF_IPUS}" == "0" ]]; then
+    echo "=============================================================================="
+    echo "                         ERROR  DETECTED"
+    echo "=============================================================================="
+    echo "Connection to IPUs timed-out. This error indicates a problem with the "
+    echo "hardware you are running on. Please contact Paperspace Support at "
+    echo " https://docs.paperspace.com/contact-support/ "
+    echo " referencing the Notebook ID: ${PAPERSPACE_METRIC_WORKLOAD_ID:-unknown}"
+    echo "=============================================================================="
+    exit -1
+fi
 
 export NUM_AVAILABLE_IPU=${IPU_ARG}
 export GRAPHCORE_POD_TYPE="pod${IPU_ARG}"
