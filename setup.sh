@@ -18,8 +18,9 @@ if [[ "${DETECTED_NUMBER_OF_IPUS}" == "0" ]]; then
     echo "                         ERROR  DETECTED"
     echo "=============================================================================="
     echo "Connection to IPUs timed-out. This error indicates a problem with the "
-    echo "hardware you are running on. Please contact Paperspace Support referencing"
-    echo " the Notebook ID: ${PAPERSPACE_METRIC_WORKLOAD_ID:-unknown}"
+    echo "hardware you are running on. Please contact Paperspace Support at "
+    echo " https://docs.paperspace.com/contact-support/ "
+    echo " referencing the Notebook ID: ${PAPERSPACE_METRIC_WORKLOAD_ID:-unknown}"
     echo "=============================================================================="
     exit -1
 fi
