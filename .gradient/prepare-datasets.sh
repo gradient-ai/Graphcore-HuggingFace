@@ -38,29 +38,29 @@ fi
 
 echo "Starting preparation of datasets"
 # symlink exe_cache files
-exe_cache_source_dir="${PUBLIC_DATASET_DIR}/poplar-executables-hf-3-1"
+exe_cache_source_dir="${PUBLIC_DATASETS_DIR}/poplar-executables-hf-3-1"
 symlink-public-resources "${exe_cache_source_dir}" $POPLAR_EXECUTABLE_CACHE_DIR
 
 # packed bert executables
-packed_sl_exe_cache_source_dir="${PUBLIC_DATASET_DIR}/packed_bert_slseqcls_exe_cache/packed_bert_slseqcls"
+packed_sl_exe_cache_source_dir="${PUBLIC_DATASETS_DIR}/packed_bert_slseqcls_exe_cache/packed_bert_slseqcls"
 symlink-public-resources "${packed_exe_cache_source_dir}" "${POPLAR_EXECUTABLE_CACHE_DIR}/packed_bert_slseqcls_exe_cache"
-packed_ml_exe_cache_source_dir="${PUBLIC_DATASET_DIR}/packed_bert_mlseqcls_exe_cache/packed_bert_mlseqcls"
+packed_ml_exe_cache_source_dir="${PUBLIC_DATASETS_DIR}/packed_bert_mlseqcls_exe_cache/packed_bert_mlseqcls"
 symlink-public-resources "${packed_exe_cache_source_dir}" "${POPLAR_EXECUTABLE_CACHE_DIR}/packed_bert_mlseqcls_exe_cache"
-packed_qa_exe_cache_source_dir="${PUBLIC_DATASET_DIR}/packed_bert_qa_exe_cache/packed_bert_squad"
+packed_qa_exe_cache_source_dir="${PUBLIC_DATASETS_DIR}/packed_bert_qa_exe_cache/packed_bert_squad"
 symlink-public-resources "${packed_exe_cache_source_dir}" "${POPLAR_EXECUTABLE_CACHE_DIR}/packed_bert_qa_exe_cache"
 
 # packed bert datasets
-packed_sl_dataset_source_dir="${PUBLIC_DATASET_DIR}/packed_bert_slseqcls_dataset_cache"
+packed_sl_dataset_source_dir="${PUBLIC_DATASETS_DIR}/packed_bert_slseqcls_dataset_cache"
 symlink-public-resources "${packed_exe_cache_source_dir}" "${HF_DATASETS}/packed_bert_slseqcls_dataset_cache"
-packed_ml_dataset_source_dir="${PUBLIC_DATASET_DIR}/packed_bert_mlseqcls_dataset_cache"
+packed_ml_dataset_source_dir="${PUBLIC_DATASETS_DIR}/packed_bert_mlseqcls_dataset_cache"
 symlink-public-resources "${packed_exe_cache_source_dir}" "${POPLAR_EXECUTABLE_CACHE_DIR}/packed_bert_mlseqcls_dataset_cache"
-packed_qa_dataset_source_dir="${PUBLIC_DATASET_DIR}/packed_bert_qa_dataset_cache"
+packed_qa_dataset_source_dir="${PUBLIC_DATASETS_DIR}/packed_bert_qa_dataset_cache"
 symlink-public-resources "${packed_exe_cache_source_dir}" "${POPLAR_EXECUTABLE_CACHE_DIR}/packed_bert_qa_dataset_cache"
 
 # packed bert inference checkpoints
-symlink-public-resources "${PUBLIC_DATASET_DIR}/bert-base-uncased-sst2" "${CHECKPOINT_DIR}/bert-base-uncased-sst2"
-symlink-public-resources "${PUBLIC_DATASET_DIR}/bert-base-uncased-go_emotions" "${CHECKPOINT_DIR}/bert-base-uncased-go_emotions"
-symlink-public-resources "${PUBLIC_DATASET_DIR}/bert-base-uncased-squad" "${CHECKPOINT_DIR}/bert-base-uncased-squad"
+symlink-public-resources "${PUBLIC_DATASETS_DIR}/bert-base-uncased-sst2" "${CHECKPOINT_DIR}/bert-base-uncased-sst2"
+symlink-public-resources "${PUBLIC_DATASETS_DIR}/bert-base-uncased-go_emotions" "${CHECKPOINT_DIR}/bert-base-uncased-go_emotions"
+symlink-public-resources "${PUBLIC_DATASETS_DIR}/bert-base-uncased-squad" "${CHECKPOINT_DIR}/bert-base-uncased-squad"
 
 
 
@@ -68,10 +68,10 @@ symlink-public-resources "${PUBLIC_DATASET_DIR}/bert-base-uncased-squad" "${CHEC
 HF_DATASETS="conll2003 glue imagefolder librispeech_asr squad swag wikitext wmt16 xsum"
 for dataset in ${HF_DATASETS}; do
     # symlink the actual datasets
-    symlink-public-resources "${PUBLIC_DATASET_DIR}/${dataset}" "${HF_DATASETS_CACHE}/$(basename ${dataset})"
+    symlink-public-resources "${PUBLIC_DATASETS_DIR}/${dataset}" "${HF_DATASETS_CACHE}/$(basename ${dataset})"
 done
 # Image classification dataset
-symlink-public-resources "${PUBLIC_DATASET_DIR}/dfki-sentinel-eurosat" "${DATASET_DIR}/dfki-sentinel-eurosat"
+symlink-public-resources "${PUBLIC_DATASETS_DIR}/dfki-sentinel-eurosat" "${DATASETS_DIR}/dfki-sentinel-eurosat"
 
 # pre-install the correct version of optimum for this release
 python -m pip install "optimum-graphcore>=0.5, <0.6"
