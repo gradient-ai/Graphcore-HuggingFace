@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 symlink-public-resources() {
     public_source_dir=${1}
     target_dir=${2}
