@@ -6,12 +6,19 @@ symlink-public-resources() {
     public_source_dir=${1}
     target_dir=${2}
 
+    local -i COUNTER=0
     # need to wait until the dataset has been mounted (async on Paperspace's end)
-    while [ ! -d ${public_source_dir} ] || [ -z "$(ls -A ${public_source_dir})" ]
+    while [ $COUNTER -lt 300 ] && ( [ ! -d ${public_source_dir} ] || [ -z "$(ls -A ${public_source_dir})" ] )
     do
         echo "Waiting for dataset "${public_source_dir}" to be mounted..."
         sleep 1
+        ((COUNTER++))
     done
+
+    if [ $COUNTER -eq 300 ]; then
+        echo "Warning! Abandoning symlink - source Dataset ${public_source_dir} has not been mounted & populated after 5m."
+        return
+    fi
 
     echo "Symlinking - ${public_source_dir} to ${target_dir}"
 
