@@ -1,4 +1,4 @@
-#! /usr/bin/env bash 
+#! /usr/bin/env bash
 set -uxo pipefail
 
 if [ ! "$(command -v fuse-overlayfs)" ]
@@ -14,7 +14,7 @@ echo "Starting preparation of datasets"
 
 
 # pre-install the correct version of optimum for this release
-python3 -m pip install "optimum-graphcore>=0.5, <0.6"
+python3 -m pip install "optimum-graphcore>=0.6, <0.7"
 
 echo "Finished running setup.sh."
 # Run automated test if specified
