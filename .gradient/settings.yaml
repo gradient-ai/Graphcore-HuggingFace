@@ -40,3 +40,6 @@ integrations:
   dfki-sentinel-eurosat:
     type: dataset
     ref: paperspace/ds8p6sv96fl1att:k5j4cob
+  gcl:
+    type: dataset
+    ref: paperspace/ds7me5hgjbfht6q:zcv65hy
