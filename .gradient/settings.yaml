@@ -1,4 +1,7 @@
 integrations:
+  gcl:
+    type: dataset
+    ref: paperspace/ds7me5hgjbfht6q:zcv65hy
   poplar-executables-hf-3-1:
     type: dataset
     ref: paperspace/dse3rnja361pu9h:pn62elc
@@ -40,6 +43,3 @@ integrations:
   dfki-sentinel-eurosat:
     type: dataset
     ref: paperspace/ds8p6sv96fl1att:k5j4cob
-  gcl:
-    type: dataset
-    ref: paperspace/ds7me5hgjbfht6q:zcv65hy
