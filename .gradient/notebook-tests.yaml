@@ -168,3 +168,29 @@ useful-managing-ipu-resources:
   notebook:
     file: managing_ipu_resources.ipynb
     timeout: 1000
+
+# Whisper
+whisper:
+  location: ../whisper
+  generated: true
+  notebook:
+    file: whisper-example.ipynb
+    timeout: 1000
+
+#GPTJ - fine-tuning
+gptj-finetuning:
+  location: ../gptj-text-generation
+  generated: true
+  notebook:
+    file: finetuning.ipynb
+    timeout: 15000
+  requirements_file: requirements.txt
+
+#GPTJ - inference
+gptj-generative-inference:
+  location: ../gptj-text-generation
+  generated: true
+  notebook:
+    file: GPTJ-generative-inference.ipynb
+    timeout: 3600
+  requirements_file: requirements.txt
