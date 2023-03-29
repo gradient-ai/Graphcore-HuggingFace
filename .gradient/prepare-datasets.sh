@@ -12,7 +12,8 @@ fi
 echo "Starting preparation of datasets"
 /notebooks/.gradient/symlink_datasets_and_caches.py
 
-
+apt update -y
+apt install -y libopenmpi-dev
 # pre-install the correct version of optimum for this release
 python3 -m pip install "optimum-graphcore @ git+https://github.com/huggingface/optimum-graphcore@main"
 
