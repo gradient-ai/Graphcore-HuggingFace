@@ -1,0 +1,13 @@
+{
+    "${POPLAR_EXECUTABLE_CACHE_DIR}":["${PUBLIC_DATASETS_DIR}/poplar-executables-hf-3-1"],
+    "${HF_DATASETS_CACHE}/conll2003":["${PUBLIC_DATASETS_DIR}/conll2003"],
+    "${HF_DATASETS_CACHE}/glue":["${PUBLIC_DATASETS_DIR}/glue"],
+    "${HF_DATASETS_CACHE}/imagefolder":["${PUBLIC_DATASETS_DIR}/imagefolder"],
+    "${HF_DATASETS_CACHE}/librispeech_asr":["${PUBLIC_DATASETS_DIR}/librispeech_asr"],
+    "${HF_DATASETS_CACHE}/squad":["${PUBLIC_DATASETS_DIR}/squad"],
+    "${HF_DATASETS_CACHE}/swag":["${PUBLIC_DATASETS_DIR}/swag"],
+    "${HF_DATASETS_CACHE}/wikitext":["${PUBLIC_DATASETS_DIR}/wikitext"],
+    "${HF_DATASETS_CACHE}/wmt16":["${PUBLIC_DATASETS_DIR}/wmt16"],
+    "${HF_DATASETS_CACHE}/xsum":["${PUBLIC_DATASETS_DIR}/xsum"],
+    "${DATASETS_DIR}/dfki-sentinel-eurosat":["${PUBLIC_DATASETS_DIR}/dfki-sentinel-eurosat"]
+}
