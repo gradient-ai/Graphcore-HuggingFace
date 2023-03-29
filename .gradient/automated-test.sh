@@ -1,4 +1,4 @@
-#!/bin/sh
+#! /usr/bin/env bash
 # Copyright (c) 2022 Graphcore Ltd. All rights reserved.
 #
 # The entry point for the automated testing on the Paperspace platform
