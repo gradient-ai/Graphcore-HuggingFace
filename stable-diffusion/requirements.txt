@@ -1,3 +1,3 @@
 diffusers[torch]==0.11.1
-optimum-graphcore>=0.6, <0.7
+optimum-graphcore>=0.6.0.dev0, <0.7
 matplotlib

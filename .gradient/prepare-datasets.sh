@@ -14,7 +14,7 @@ echo "Starting preparation of datasets"
 
 
 # pre-install the correct version of optimum for this release
-python3 -m pip install "optimum-graphcore>=0.6, <0.7"
+python3 -m pip install "optimum-graphcore @ git+https://github.com/huggingface/optimum-graphcore@main"
 
 echo "Finished running setup.sh."
 # Run automated test if specified
