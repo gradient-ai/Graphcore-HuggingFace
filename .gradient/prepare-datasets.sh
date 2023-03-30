@@ -15,7 +15,7 @@ echo "Starting preparation of datasets"
 apt update -y
 apt install -y libopenmpi-dev
 # pre-install the correct version of optimum for this release
-python3 -m pip install "optimum-graphcore @ git+https://github.com/huggingface/optimum-graphcore@main"
+python3 -m pip install "optimum-graphcore @ git+https://github.com/graphcore/optimum-graphcore-fork@whisper/poc"
 
 echo "Finished running setup.sh."
 # Run automated test if specified

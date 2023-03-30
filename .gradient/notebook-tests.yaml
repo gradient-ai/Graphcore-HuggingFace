@@ -6,6 +6,14 @@ Graphcore-HuggingFace-README_first:
     file: README_first.ipynb
     timeout: 10000
 
+# Whisper
+whisper:
+  location: ../whisper
+  generated: true
+  notebook:
+    file: whisper-example.ipynb
+    timeout: 1000
+
 nlp-ner-gradio:
   location: ../natural-language-processing
   generated: true
@@ -168,14 +176,6 @@ useful-managing-ipu-resources:
   generated: true
   notebook:
     file: managing_ipu_resources.ipynb
-    timeout: 1000
-
-# Whisper
-whisper:
-  location: ../whisper
-  generated: true
-  notebook:
-    file: whisper-example.ipynb
     timeout: 1000
 
 #GPTJ - fine-tuning
