@@ -27,7 +27,7 @@ nlp-ner-gradio:
   generated: true
   notebook:
     file: name-entity-extraction.ipynb
-    timeout: 10000
+    timeout: 2000
 
 nlp-text_classification:
   location: ../natural-language-processing/other-use-cases
