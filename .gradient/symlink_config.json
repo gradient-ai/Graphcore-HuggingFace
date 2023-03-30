@@ -1,5 +1,5 @@
 {
-    "${POPLAR_EXECUTABLE_CACHE_DIR}":["${PUBLIC_DATASETS_DIR}/poplar-executables-hf-3-1"],
+    "${POPLAR_EXECUTABLE_CACHE_DIR}":["${PUBLIC_DATASETS_DIR}/poplar-executables-hf"],
     "${HF_DATASETS_CACHE}/conll2003":["${PUBLIC_DATASETS_DIR}/conll2003"],
     "${HF_DATASETS_CACHE}/glue":["${PUBLIC_DATASETS_DIR}/glue"],
     "${HF_DATASETS_CACHE}/imagefolder":["${PUBLIC_DATASETS_DIR}/imagefolder"],

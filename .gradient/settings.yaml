@@ -1,5 +1,5 @@
 integrations:
-  poplar-executables-hf-3-1:
+  poplar-executables-hf:
     type: dataset
     ref: paperspace/dse3rnja361pu9h:pn62elc
   conll2003:
