@@ -6,6 +6,13 @@ Graphcore-HuggingFace-README_first:
     file: README_first.ipynb
     timeout: 10000
 
+nlp-ner-gradio:
+  location: ../natural-language-processing
+  generated: true
+  notebook:
+    file: name-entity-extraction.ipynb
+    timeout: 2000
+
 # Natural language processing
 nlp-introduction_to_optimum_graphcore:
   location: ../natural-language-processing
@@ -22,12 +29,6 @@ nlp-sentiment-analysis:
     timeout: 10000
 
 
-nlp-ner-gradio:
-  location: ../natural-language-processing
-  generated: true
-  notebook:
-    file: name-entity-extraction.ipynb
-    timeout: 2000
 
 nlp-text_classification:
   location: ../natural-language-processing/other-use-cases
