@@ -2,37 +2,13 @@ integrations:
   poplar-executables-hf:
     type: dataset
     ref: paperspace/dse3rnja361pu9h:pn62elc
-  conll2003:
-    type: dataset
-    ref: paperspace/ds0uq8lavg1ansc:dzexfc4
-  glue:
-    type: dataset
-    ref: paperspace/dsalacr4p2hnbnq:ckb5h6e
-  imagefolder:
-    type: dataset
-    ref: paperspace/dsn6uurmu574eoj:onep57f
   librispeech_asr:
     type: dataset
     ref: paperspace/ds1uofih1koi71b:xi0qac2
-  squad:
-    type: dataset
-    ref: paperspace/dsw2jrzd591wjrw:t6nyw3u
   # removing superb while the audio classification nb is removed
   # superb:
   #   type: dataset
   #   ref: paperspace/dsgrgvk6f7zecuw:fov2xl1
-  swag:
-    type: dataset
-    ref: paperspace/ds8z0ou4dlgavch:hdqh8jt
-  wikitext:
-    type: dataset
-    ref: paperspace/dsnq4bm2ghk3e55:mj4yzed
-  wmt16:
-    type: dataset
-    ref: paperspace/dsunaz44rqeig90:guyeb56
-  xsum:
-    type: dataset
-    ref: paperspace/dsl9ejgiaf370jr:h64gxpk
   # removing downloads while the audio classification nb is removed
   # graphcore-downloads:
   #   type: dataset
