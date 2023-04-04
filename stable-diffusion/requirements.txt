@@ -1,2 +1,2 @@
-optimum-graphcore @ git+https://github.com/graphcore/optimum-graphcore-fork@test-integration-3.2
+optimum-graphcore @ git+https://github.com/huggingface/optimum-graphcore@v0.6.0
 matplotlib

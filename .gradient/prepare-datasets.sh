@@ -13,7 +13,7 @@ echo "Starting preparation of datasets"
 /notebooks/.gradient/symlink_datasets_and_caches.py
 
 # pre-install the correct version of optimum for this release
-python3 -m pip install "optimum-graphcore @ git+https://github.com/graphcore/optimum-graphcore-fork@test-integration-3.2"
+python3 -m pip install "optimum-graphcore @ git+https://github.com/huggingface/optimum-graphcore@v0.6.0"
 
 echo "Finished running setup.sh."
 # Run automated test if specified
