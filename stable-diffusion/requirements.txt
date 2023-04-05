@@ -1,2 +1,2 @@
-optimum-graphcore @ git+https://github.com/huggingface/optimum-graphcore@v0.6.0
+optimum-graphcore>=0.6.0, <0.7.0
 matplotlib
