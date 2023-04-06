@@ -1,4 +1,4 @@
-#! /usr/bin/env bash 
+#! /usr/bin/env bash
 set -uxo pipefail
 
 if [ ! "$(command -v fuse-overlayfs)" ]
@@ -12,9 +12,6 @@ fi
 echo "Starting preparation of datasets"
 /notebooks/.gradient/symlink_datasets_and_caches.py
 
-
-# pre-install the correct version of optimum for this release
-python3 -m pip install "optimum-graphcore>=0.5, <0.6"
 
 echo "Finished running setup.sh."
 # Run automated test if specified
