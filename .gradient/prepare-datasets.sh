@@ -12,6 +12,7 @@ fi
 echo "Starting preparation of datasets"
 /notebooks/.gradient/symlink_datasets_and_caches.py
 
+
 echo "Finished running setup.sh."
 # Run automated test if specified
 if [[ "${1:-}" == 'test' ]]; then
