@@ -40,7 +40,7 @@ export PUBLIC_DATASETS_DIR="/datasets"
 export HUGGINGFACE_HUB_CACHE="/tmp/huggingface_caches"
 export TRANSFORMERS_CACHE="/tmp/huggingface_caches/checkpoints"
 export HF_DATASETS_CACHE="/tmp/huggingface_caches/datasets"
-export GRADIO_SHARE_APP="True"
+
 # Set framework specific variables
 export POPTORCH_CACHE_DIR="${POPLAR_EXECUTABLE_CACHE_DIR}"
 export POPTORCH_LOG_LEVEL=ERR
