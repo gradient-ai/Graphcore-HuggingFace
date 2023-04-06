@@ -12,9 +12,6 @@ fi
 echo "Starting preparation of datasets"
 /notebooks/.gradient/symlink_datasets_and_caches.py
 
-# pre-install the correct version of optimum for this release
-python3 -m pip install "optimum-graphcore>=0.6.0, <0.7.0"
-
 echo "Finished running setup.sh."
 # Run automated test if specified
 if [[ "${1:-}" == 'test' ]]; then
