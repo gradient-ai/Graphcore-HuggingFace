@@ -6,6 +6,21 @@ Graphcore-HuggingFace-README_first:
     file: README_first.ipynb
     timeout: 10000
 
+# Whisper
+whisper:
+  location: ../whisper
+  generated: true
+  notebook:
+    file: whisper-example.ipynb
+    timeout: 1000
+
+nlp-ner-gradio:
+  location: ../natural-language-processing
+  generated: true
+  notebook:
+    file: name-entity-extraction.ipynb
+    timeout: 2000
+
 # Natural language processing
 nlp-introduction_to_optimum_graphcore:
   location: ../natural-language-processing
@@ -22,12 +37,6 @@ nlp-sentiment-analysis:
     timeout: 10000
 
 
-nlp-ner-gradio:
-  location: ../natural-language-processing
-  generated: true
-  notebook:
-    file: name-entity-extraction.ipynb
-    timeout: 10000
 
 nlp-text_classification:
   location: ../natural-language-processing/other-use-cases
@@ -168,3 +177,45 @@ useful-managing-ipu-resources:
   notebook:
     file: managing_ipu_resources.ipynb
     timeout: 1000
+
+#GPTJ - fine-tuning
+gptj-finetuning:
+  location: ../gptj-text-generation
+  generated: true
+  notebook:
+    file: finetuning.ipynb
+    timeout: 15000
+  requirements_file: requirements.txt
+
+#GPTJ - inference
+gptj-generative-inference:
+  location: ../gptj-text-generation
+  generated: true
+  notebook:
+    file: GPTJ-generative-inference.ipynb
+    timeout: 3600
+  requirements_file: requirements.txt
+
+
+packed-bert-multi-label-classification:
+  location: ../packed-bert
+  generated: true
+  notebook:
+    file: packedBERT_multi_label_text_classification.ipynb
+    timeout: 10000
+
+
+packed-bert-question-answering:
+  location: ../packed-bert
+  generated: true
+  notebook:
+    file: packedBERT_question_answering.ipynb
+    timeout: 10000
+
+
+packed-bert-single-label-classification:
+  location: ../packed-bert
+  generated: true
+  notebook:
+    file: packedBERT_single_label_text_classification.ipynb
+    timeout: 10000
