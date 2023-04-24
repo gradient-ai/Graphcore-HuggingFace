@@ -98,10 +98,13 @@ class DollyPipeline:
         if isinstance(hf_dolly_checkpoint, str):
             logging.info(f"Downloading '{hf_dolly_checkpoint}' pretrained weights")
             hf_model = GPTNeoXForCausalLM.from_pretrained(hf_dolly_checkpoint)
+            logging.info("Completed pretrained weights download.")
             if tokenizer is None:
                 logging.info(f"Downloading '{hf_dolly_checkpoint}' tokenizer")
                 tokenizer = AutoTokenizer.from_pretrained(hf_dolly_checkpoint)
+                logging.info("Completed tokenizer download.")
         else:
+            logging.info("hf_model already specified, skipping download.")
             hf_model = hf_dolly_checkpoint
         if tokenizer is None:
             raise ValueError(
@@ -112,6 +115,7 @@ class DollyPipeline:
         with timer("Loading HF pretrained model to IPU"):
             weights = hf_mapping_lm_tp(config, session, hf_model)
             session.write_variables_data(weights)
+        logging.info("IPU pretrained weights loading complete.")
 
         eos_token_id = tokenizer.encode(END_KEY)
         assert len(eos_token_id) == 1
@@ -124,6 +128,7 @@ class DollyPipeline:
         self.print_live = print_live
         self.decoded_result = None
         self.last_instruction_prompt = None
+        logging.info("Finished initialising pipeline")
 
     def next_token(self, inputs, lengths, temperature, k):
         shards = self.config.execution.tensor_parallel * self.config.execution.data_parallel
@@ -230,8 +235,8 @@ class DollyPipeline:
             output_length = self.config.model.sequence_length - max(tokenized_length)
         assert 1 <= output_length <= self.config.model.sequence_length - max(tokenized_length)
         if print_live:
-            print(f"Input prompt: {original_prompt[0]}")
-            print("Response:")
+            logging.info(f"Input prompt: {original_prompt[0]}")
+            logging.info("Response:")
 
         start_time = time.time()
         for _ in range(output_length):
@@ -264,10 +269,8 @@ class DollyPipeline:
 
         if print_live:
             print("")
-            print("Final output:")
-            print(f"{self.decoded_result[0]}")
-            print(f"Output in {end_time - start_time:.2f} seconds")
-            print(f"Throughput: {num_generated / (end_time - start_time):.2f} t/s")
+            logging.info(f"Output in {end_time - start_time:.2f} seconds")
+            logging.info(f"Throughput: {num_generated / (end_time - start_time):.2f} t/s")
 
         return self.decoded_result
 
