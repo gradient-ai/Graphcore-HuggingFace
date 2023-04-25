@@ -1,3 +1,5 @@
 optimum-graphcore>=0.6.0, <0.7.0
-matplotlib
+emoji==0.6.0
+gradio
+sacrebleu
 examples-utils[common] @ git+https://github.com/graphcore/examples-utils@latest_stable
