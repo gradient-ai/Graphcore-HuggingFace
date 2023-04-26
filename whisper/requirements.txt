@@ -1,0 +1,6 @@
+optimum-graphcore>=0.6, <0.7
+soundfile==0.12.1
+librosa==0.10.0.post2
+tokenizers==0.12.1
+matplotlib
+examples-utils[common] @ git+https://github.com/graphcore/examples-utils@latest_stable

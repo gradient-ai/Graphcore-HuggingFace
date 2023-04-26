@@ -1,0 +1,4 @@
+optimum-graphcore>=0.6.0, <0.7.0
+scikit-learn 
+torchvision==0.14.1+cpu -f https://download.pytorch.org/whl/torch_stable.html
+examples-utils[common] @ git+https://github.com/graphcore/examples-utils@latest_stable
