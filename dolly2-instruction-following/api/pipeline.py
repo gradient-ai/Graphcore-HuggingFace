@@ -203,7 +203,7 @@ class DollyPipeline:
         prompt_format: Optional[str], if specified override prompt format specified during pipeline init.
         end_key: Optional[str], if specified override end key specified during pipeline init.
         print_live: Optional[bool], whether to print the tokens one-by-one as they are decoded. `None` results in automatic behaviour depending on batch size.
-        print_final: bool, whether to print the total time taken and throughput.
+        print_info: bool, whether to print extra info such as the total time taken and throughput.
     """
 
     def __call__(
@@ -216,7 +216,7 @@ class DollyPipeline:
         prompt_format: Optional[str] = None,
         end_key: Optional[str] = None,
         print_live: Optional[bool] = None,
-        print_final: bool = True,
+        print_info: bool = True,
     ):
         assert 0.0 <= temperature <= 1.0, "Temperature must be a float value in the range [0, 1]."
         assert (
@@ -262,7 +262,7 @@ class DollyPipeline:
         if output_length is None:
             output_length = self.config.model.sequence_length - max(tokenized_length)
         assert 1 <= output_length <= self.config.model.sequence_length - max(tokenized_length)
-        if print_live:
+        if print_info:
             logging.info(f"Input prompt: {original_prompt[0]}")
             logging.info("Response:")
 
@@ -296,7 +296,7 @@ class DollyPipeline:
         self.decoded_result = self.tokenizer.batch_decode(result)[:N]  # unpad result
 
         print("")
-        if print_final:
+        if print_info:
             logging.info(f"Output in {end_time - start_time:.2f} seconds")
             logging.info(f"Throughput: {num_generated / (end_time - start_time):.2f} t/s")
 
