@@ -1,5 +1,0 @@
-optimum-graphcore>=0.6.0, <0.7.0
-rouge-score
-nltk
-seqeval
-examples-utils[common] @ git+https://github.com/graphcore/examples-utils@latest_stable
