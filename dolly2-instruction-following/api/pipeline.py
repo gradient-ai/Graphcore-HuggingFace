@@ -12,6 +12,7 @@ from modelling.hf_mapping import hf_mapping_lm_tp
 from popxl_addons import timer
 from popxl_addons.array_munging import tensor_parallel_input, repeat
 from config import DollyConfig
+from textwrap import dedent
 
 from transformers.models.gpt_neox import GPTNeoXForCausalLM
 from transformers import AutoTokenizer
@@ -24,31 +25,38 @@ import time
 # Prompt format code from https://huggingface.co/databricks/dolly-v2-3b/blob/main/instruct_pipeline.py
 # Licensed under Apache 2.0 see https://github.com/databrickslabs/dolly/blob/master/LICENSE
 # Instruction finetuned models need a specific prompt
-INSTRUCTION_KEY = "### Instruction:"
-RESPONSE_KEY = "### Response:"
-END_KEY = "### End"
-INTRO_BLURB = "The instruction below describes a task. Write a response that appropriately completes the request."
-
-# This is the prompt that is used for generating responses using an already-trained model. It ends with the response
-# key, where the job of the model is to provide the completion that follows it (which means the response itself).
-PROMPT_FOR_GENERATION_FORMAT = """{intro}
-{instruction_key}
-{instruction}
-{response_key}
-""".format(
-    intro=INTRO_BLURB,
-    instruction_key=INSTRUCTION_KEY,
-    instruction="{instruction}",
-    response_key=RESPONSE_KEY,
-)
+DEFAULT_END_KEY = "### End"
 
 
-def format_prompts(prompt: Union[str, List[str]]):
+def default_dolly_prompt():
+    INSTRUCTION_KEY = "### Instruction:"
+    RESPONSE_KEY = "### Response:"
+    INTRO_BLURB = "The instruction below describes a task. Write a response that appropriately completes the request."
+
+    # This is the prompt that is used for generating responses using an already-trained model. It ends with the response
+    # key, where the job of the model is to provide the completion that follows it (which means the response itself).
+    format_str = dedent(
+        """\
+    {intro}
+    {instruction_key}
+    {instruction}
+    {response_key}
+    """
+    ).format(
+        intro=INTRO_BLURB,
+        instruction_key=INSTRUCTION_KEY,
+        instruction="{instruction}",
+        response_key=RESPONSE_KEY,
+    )
+    return format_str
+
+
+def format_prompts(prompt: Union[str, List[str]], format_str: str):
     if isinstance(prompt, str):
         prompt = [prompt]
 
     # iterate over prompts and apply prompt template
-    return [PROMPT_FOR_GENERATION_FORMAT.format(instruction=p) for p in prompt]
+    return [format_str.format(instruction=p) for p in prompt]
 
 
 def tokenize_initial(prompt: List[str], tokenizer: AutoTokenizer, config: DollyConfig):
@@ -81,10 +89,11 @@ class DollyPipeline:
         config: DollyConfig,
         *args,
         hf_dolly_checkpoint: Union[str, GPTNeoXForCausalLM] = "databricks/dolly-v2-12b",
-        sequence_length=None,
-        micro_batch_size=None,
-        print_live=True,
+        sequence_length: int = None,
+        micro_batch_size: int = None,
         tokenizer: Optional[AutoTokenizer] = None,
+        prompt_format: Optional[str] = None,
+        end_key: Optional[str] = None,
         **kwargs,
     ) -> None:
         if sequence_length is not None:
@@ -117,15 +126,23 @@ class DollyPipeline:
             session.write_variables_data(weights)
         logging.info("IPU pretrained weights loading complete.")
 
-        eos_token_id = tokenizer.encode(END_KEY)
-        assert len(eos_token_id) == 1
-        tokenizer.eos_token_id = eos_token_id[0]
+        self.prompt_format = prompt_format
+        if self.prompt_format is None:
+            self.prompt_format = default_dolly_prompt()
+
+        self.end_key = end_key
+        if self.end_key is None:
+            self.end_key = DEFAULT_END_KEY
+
+        self.original_eos_token_id = tokenizer.encode(self.end_key)
+        assert len(self.original_eos_token_id) == 1
+        self.original_eos_token_id = self.original_eos_token_id[0]
+        tokenizer.eos_token_id = self.original_eos_token_id
 
         self.tokenizer = tokenizer
         self.pretrained = hf_model
         self.config = config
         self.session = session
-        self.print_live = print_live
         self.decoded_result = None
         self.last_instruction_prompt = None
         logging.info("Finished initialising pipeline")
@@ -183,7 +200,10 @@ class DollyPipeline:
         temperature: float, control sampling temperature by dividing logits by this value. For temperature = 0 where argmax sampling is used instead
         k: int, limits random sampling to top `k` most probably tokens. For `k=0` equivalent to `k=vocab_size`.
         output_length: Optional[int], maximum number of tokens to sample. Cannot exceed `sequence_length - output_length`. Defaults to maximum possible value.
+        prompt_format: Optional[str], if specified override prompt format specified during pipeline init.
+        end_key: Optional[str], if specified override end key specified during pipeline init.
         print_live: Optional[bool], whether to print the tokens one-by-one as they are decoded. `None` results in automatic behaviour depending on batch size.
+        print_final: bool, whether to print the total time taken and throughput.
     """
 
     def __call__(
@@ -193,21 +213,29 @@ class DollyPipeline:
         temperature: float = 1.0,
         k: int = 5,
         output_length: Optional[int] = None,
+        prompt_format: Optional[str] = None,
+        end_key: Optional[str] = None,
         print_live: Optional[bool] = None,
+        print_final: bool = True,
     ):
         assert 0.0 <= temperature <= 1.0, "Temperature must be a float value in the range [0, 1]."
         assert (
             0 <= k <= self.config.model.embedding.vocab_size
         ), f"top k value must be in the range [0, vocab_size] (maximum = {self.config.model.embedding.vocab_size})"
         original_prompt = prompt if isinstance(prompt, list) else [prompt]
-        prompt = format_prompts(prompt)
+
+        prompt_format = prompt_format if prompt_format is not None else self.prompt_format
+        prompt = format_prompts(prompt, prompt_format)
         N = len(prompt)  # record original number of prompts so we can remove padding later
 
-        # default to class print live if batch size == 1. For batching override to false. Can override to true by passing to this fn
-        if print_live is None and len(prompt) > 1:
-            print_live = False
-        else:
-            print_live = self.print_live
+        if end_key is not None:
+            eos_token_id = self.tokenizer.encode(end_key)
+            assert len(eos_token_id) == 1
+            self.tokenizer.eos_token_id = eos_token_id[0]
+
+        # if print_live is not provided, set to True for single example case, else False. If it is provided set to that.
+        if print_live is None:
+            print_live = len(prompt) == 1
 
         # Preprocess the data including batching it
         micro_batch = self.config.execution.micro_batch_size
@@ -267,10 +295,13 @@ class DollyPipeline:
 
         self.decoded_result = self.tokenizer.batch_decode(result)[:N]  # unpad result
 
-        if print_live:
-            print("")
+        print("")
+        if print_final:
             logging.info(f"Output in {end_time - start_time:.2f} seconds")
             logging.info(f"Throughput: {num_generated / (end_time - start_time):.2f} t/s")
+
+        if end_key is not None:
+            self.tokenizer.eos_token_id = self.original_eos_token_id
 
         return self.decoded_result
 
@@ -289,7 +320,7 @@ class DollyPipeline:
 if __name__ == "__main__":
     from utils.setup import dolly_config_setup
 
-    config, _, hf_model = dolly_config_setup("config/inference.yml", "release", "dolly_pod4", hf_model_setup=True)
+    config, _, hf_model = dolly_config_setup("config/inference.yml", "release", "dolly_pod16", hf_model_setup=True)
     tokenizer = AutoTokenizer.from_pretrained("databricks/dolly-v2-12b")
     pipe = DollyPipeline(config, hf_dolly_checkpoint=hf_model, tokenizer=tokenizer)
 
