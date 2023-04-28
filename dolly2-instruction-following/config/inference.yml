@@ -38,3 +38,10 @@ release:
       micro_batch_size: 1
       available_memory_proportion: [ 0.4 ]
       tensor_parallel: 4
+
+  dolly_pod16:
+    <<: *dolly
+    execution:
+      micro_batch_size: 1
+      available_memory_proportion: [ 0.4 ]
+      tensor_parallel: 16
